@@ -29,6 +29,11 @@ class User extends Authenticatable
         return $this->belongsTo(Media::class, 'image_id', 'id')->withDefault();
     }
 
+    public function getFullNameAttribute()
+    {
+        return $this->f_name . ' ' . $this->l_name;
+    }
+
     public function getProfileAttribute()
     {
         return empty($this->image->files)

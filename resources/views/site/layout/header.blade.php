@@ -38,30 +38,18 @@
     <link rel="icon" href="{{asset('assets/common/images/logo/favicon.ico')}}" type="image/x-icon">
     <link rel="manifest" href="{{asset('assets/common/images/logo/manifest.json')}}">
 
-    <!-- Bootstrap Min CSS -->
-    <link rel="stylesheet" href="{{asset('assets/frontend/css/bootstrap.min.css')}}">
-    <!-- Animation Min CSS -->
-    <link rel="stylesheet" href="{{asset('assets/frontend/css/animate.min.css')}}">
-    <!-- Font Awesome Min CSS -->
-    <link rel="stylesheet" href="{{asset('assets/frontend/css/fontawesome.min.css')}}">
-    <!-- FlatIcon CSS -->
-    <link rel="stylesheet" href="{{asset('assets/frontend/css/flaticon.css')}}">
-    <!-- Magnific Popup Min CSS -->
-    <link rel="stylesheet" href="{{asset('assets/frontend/css/magnific-popup.min.css')}}">
-    <!-- Mean Menu CSS -->
-    <link rel="stylesheet" href="{{asset('assets/frontend/css/meanmenu.css')}}">
-    <!-- Odometer Min CSS -->
-    <link rel="stylesheet" href="{{asset('assets/frontend/css/odometer.min.css')}}">
-    <!-- Nice Select Min CSS -->
-    <link rel="stylesheet" href="{{asset('assets/frontend/css/nice-select.min.css')}}">
-    <!-- Owl Carousel Min CSS -->
-    <link rel="stylesheet" href="{{asset('assets/frontend/css/owl.carousel.min.css')}}">
-    <!-- Style CSS -->
-    <link rel="stylesheet" href="{{asset('assets/frontend/css/style.css')}}">
-    <!-- RTL CSS -->
-    <link rel="stylesheet" href="{{asset('assets/frontend/css/rtl.css')}}">
-    <!-- Responsive CSS -->
-    <link rel="stylesheet" href="{{asset('assets/frontend/css/responsive.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{asset('assets/frontend/css/bootstrap.min.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{asset('assets/frontend/css/animate.min.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{asset('assets/frontend/css/fontawesome.min.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{asset('assets/frontend/css/flaticon.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{asset('assets/frontend/css/magnific-popup.min.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{asset('assets/frontend/css/meanmenu.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{asset('assets/frontend/css/odometer.min.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{asset('assets/frontend/css/nice-select.min.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{asset('assets/frontend/css/owl.carousel.min.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{asset('assets/frontend/css/style.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{asset('assets/frontend/css/rtl.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{asset('assets/frontend/css/responsive.css')}}">
 
     @yield('site_css')
 

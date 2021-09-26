@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 /*START ADMIN*/
 
-Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'throttle:50,1'],
+Route::group(['prefix' => 'admin', 'middleware' => ['web', 'my_auth', 'throttle:50,1'],
     'namespace' => 'App\Http\Controllers\Admin'], function () {
 
     Route::get('/', function () {
@@ -16,6 +16,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'throttle:50,
 
     Route::get('profile', 'ProfileController@index')->name('profile');
     Route::patch('profile', 'ProfileController@update')->name('update_profile');
+
+    Route::resource('sliders', 'SliderController')->except('show');
 
 });
 
