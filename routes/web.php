@@ -19,6 +19,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'my_auth', 'throttle:
 
     Route::resource('sliders', 'SliderController')->except('show');
 
+    Route::resource('projects_categories', 'ProjectCategoryController')->except('show');
+    Route::resource('projects', 'ProjectController')->except('show');
+
+    Route::get('projects/gallery/{project_id}', 'ProjectGalleryController@index')->name('projects.gallery.index');
+    Route::post('projects/gallery/{project_id}', 'ProjectGalleryController@store')->name('projects.gallery.store');
+    Route::delete('projects/gallery/{project_id}/{id}/destroy', 'ProjectGalleryController@destroy')->name('projects.gallery.destroy');
+
 });
 
 /*END ADMIN*/

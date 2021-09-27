@@ -4,16 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Slider extends Model
+class ProjectCategory extends Model
 {
-    protected $table = 'sliders';
+    protected $table = 'projects_categories';
 
     protected $fillable =
         [
             'name',
-            'text',
-            'url',
-            'image_id'
+            'slug'
         ];
 
     protected $guarded =
@@ -22,9 +20,4 @@ class Slider extends Model
             'created_at',
             'updated_at'
         ];
-
-    public function image()
-    {
-        return $this->belongsTo(Media::class, 'image_id', 'id')->withDefault();
-    }
 }

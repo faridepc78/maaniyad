@@ -59,7 +59,7 @@
 
                 <div class="input-group mb-3">
                     <label for="user_name"></label>
-                    <input onkeyup="this.value=removeSpaces(this.value)"  id="user_name" type="text" placeholder="نام کاربری را وارد کنید"
+                    <input required onkeyup="this.value=removeSpaces(this.value)"  id="user_name" type="text" placeholder="نام کاربری را وارد کنید"
                            class="form-control @error('user_name') is-invalid @enderror" name="user_name"
                            value="{{ old('user_name') }}" autocomplete="user_name" autofocus>
                     <div class="input-group-append">
@@ -76,7 +76,7 @@
 
                 <div class="input-group mb-3">
                     <label for="password"></label>
-                    <input onkeyup="this.value=removeSpaces(this.value)"  id="password" type="password"
+                    <input required onkeyup="this.value=removeSpaces(this.value)"  id="password" type="password"
                            placeholder="رمز عبور را وارد کنید"
                            class="form-control @error('password') is-invalid @enderror"
                            name="password"

@@ -4,15 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Slider extends Model
+class ProjectGallery extends Model
 {
-    protected $table = 'sliders';
+    protected $table = 'projects_gallery';
 
     protected $fillable =
         [
-            'name',
-            'text',
-            'url',
+            'project_id',
             'image_id'
         ];
 
@@ -22,6 +20,11 @@ class Slider extends Model
             'created_at',
             'updated_at'
         ];
+
+    public function project()
+    {
+        return $this->belongsTo(Project::class, 'project_id', 'id')->withDefault();
+    }
 
     public function image()
     {

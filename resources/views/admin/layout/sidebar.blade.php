@@ -91,6 +91,64 @@
                         </ul>
                     </li>
 
+                    <li class="nav-item has-treeview {{ request()->routeIs(['projects.index',
+'projects.create',
+'projects.edit',
+'projects_categories.index',
+'projects_categories.create',
+'projects_categories.edit']) ? 'menu-open' : '' }}">
+
+                        <a href="#"
+                           class="nav-link {{ request()->routeIs(['projects.index',
+'projects.create',
+'projects.edit',
+'projects_categories.index',
+'projects_categories.create',
+'projects_categories.edit']) ? 'active' : '' }}">
+                            <i class="nav-icon fa fa-tasks"></i>
+                            <p>
+                                پروژه ها
+                                <i class="fa fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+                                <a href="{{route('projects_categories.index')}}"
+                                   class="nav-link {{ request()->routeIs(['projects_categories.index']) ? 'active' : '' }}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>مدیریت دسته بندی ها</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{route('projects_categories.create')}}"
+                                   class="nav-link {{ request()->routeIs(['projects_categories.create']) ? 'active' : '' }}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>ایجاد دسته بندی ها</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ route('projects.index') }}"
+                                   class="nav-link {{ request()->routeIs(['projects.index']) ? 'active' : '' }}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>مدیریت پروژه ها</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ route('projects.create') }}"
+                                   class="nav-link {{ request()->routeIs('projects.create') ? 'active' : '' }}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>ایجاد پروژه ها</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
                     <li class="nav-item">
 
                         <a href="{{route('logout')}}"
