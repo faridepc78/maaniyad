@@ -65,6 +65,6 @@ class ProjectGalleryController extends Controller
             DB::rollBack();
             newFeedback('پیام', 'عملیات با شکست مواجه شد', 'error');
         }
-        return redirect()->route('projects.gallery.index', $id);
+        return redirect()->route('projects.gallery.index', $project_id);
     }
 }

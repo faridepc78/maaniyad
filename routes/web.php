@@ -20,11 +20,22 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'my_auth', 'throttle:
     Route::resource('sliders', 'SliderController')->except('show');
 
     Route::resource('projects_categories', 'ProjectCategoryController')->except('show');
+
     Route::resource('projects', 'ProjectController')->except('show');
 
     Route::get('projects/gallery/{project_id}', 'ProjectGalleryController@index')->name('projects.gallery.index');
     Route::post('projects/gallery/{project_id}', 'ProjectGalleryController@store')->name('projects.gallery.store');
     Route::delete('projects/gallery/{project_id}/{id}/destroy', 'ProjectGalleryController@destroy')->name('projects.gallery.destroy');
+
+    Route::resource('posts_categories', 'PostCategoryController')->except('show');
+
+    Route::resource('posts', 'PostController')->except('show');
+
+    Route::get('posts/media/{post_id}', 'PostMediaController@index')->name('posts.media.index');
+    Route::post('posts/media/{post_id}', 'PostMediaController@store')->name('posts.media.store');
+    Route::delete('posts/media/{post_id}/{id}/destroy', 'PostMediaController@destroy')->name('posts.media.destroy');
+
+    Route::resource('team', 'TeamController')->except('show');
 
 });
 
