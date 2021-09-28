@@ -247,6 +247,114 @@
                         </ul>
                     </li>
 
+                    <li class="nav-item has-treeview {{ request()->routeIs(['brands.index',
+'brands.create',
+'brands.edit']) ? 'menu-open' : '' }}">
+
+                        <a href="#"
+                           class="nav-link {{ request()->routeIs(['brands.index',
+'brands.create',
+'brands.edit']) ? 'active' : '' }}">
+                            <i class="nav-icon fa fa-apple"></i>
+                            <p>
+                                برند ها
+                                <i class="fa fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+                                <a href="{{ route('brands.index') }}"
+                                   class="nav-link {{ request()->routeIs(['brands.index']) ? 'active' : '' }}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>مدیریت برند ها</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ route('brands.create') }}"
+                                   class="nav-link {{ request()->routeIs('brands.create') ? 'active' : '' }}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>ایجاد برند ها</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item has-treeview {{ request()->routeIs(['services.index',
+'services.create',
+'services.edit']) ? 'menu-open' : '' }}">
+
+                        <a href="#"
+                           class="nav-link {{ request()->routeIs(['services.index',
+'services.create',
+'services.edit']) ? 'active' : '' }}">
+                            <i class="nav-icon fa fa-wrench"></i>
+                            <p>
+                                خدمات
+                                <i class="fa fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+                                <a href="{{ route('services.index') }}"
+                                   class="nav-link {{ request()->routeIs(['services.index']) ? 'active' : '' }}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>مدیریت خدمات</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ route('services.create') }}"
+                                   class="nav-link {{ request()->routeIs('services.create') ? 'active' : '' }}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>ایجاد خدمات</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item has-treeview {{ request()->routeIs(['feedbacks.index',
+'feedbacks.create',
+'feedbacks.edit']) ? 'menu-open' : '' }}">
+
+                        <a href="#"
+                           class="nav-link {{ request()->routeIs(['feedbacks.index',
+'feedbacks.create',
+'feedbacks.edit']) ? 'active' : '' }}">
+                            <i class="nav-icon fa fa-comments-o"></i>
+                            <p>
+                                نظرات مشتریان
+                                <i class="fa fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+                                <a href="{{ route('feedbacks.index') }}"
+                                   class="nav-link {{ request()->routeIs(['feedbacks.index']) ? 'active' : '' }}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>مدیریت نظرات مشتریان</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ route('feedbacks.create') }}"
+                                   class="nav-link {{ request()->routeIs('feedbacks.create') ? 'active' : '' }}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>ایجاد نظرات مشتریان</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
                     <li class="nav-item">
 
                         <a href="{{route('logout')}}"

@@ -2,23 +2,24 @@
 
 namespace App\Repositories;
 
-use App\Models\Brand;
+use App\Models\Feedback;
 
-class BrandRepository
+class FeedbackRepository
 {
     public function store($values)
     {
-        return Brand::query()
+        return Feedback::query()
             ->create([
                 'name' => $values['name'],
-                'link' => $values['link'],
+                'job' => $values['job'],
+                'text' => $values['text'],
                 'image_id' => null
             ]);
     }
 
     public function addImage($image_id, $id)
     {
-        return Brand::query()
+        return Feedback::query()
             ->where('id', '=', $id)
             ->update([
                 'image_id' => $image_id
@@ -27,31 +28,32 @@ class BrandRepository
 
     public function paginate()
     {
-        return Brand::query()
+        return Feedback::query()
             ->latest()
             ->paginate(10);
     }
 
     public function findById($id)
     {
-        return Brand::query()
+        return Feedback::query()
             ->findOrFail($id);
     }
 
     public function update($values, $image_id, $id)
     {
-        return Brand::query()
+        return Feedback::query()
             ->where('id', '=', $id)
             ->update([
                 'name' => $values['name'],
-                'link' => $values['link'],
+                'job' => $values['job'],
+                'text' => $values['text'],
                 'image_id' => $image_id
             ]);
     }
 
     public function getAll()
     {
-        return Brand::query()
+        return Feedback::query()
             ->latest()
             ->get();
     }

@@ -6,25 +6,26 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StoreBrandRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
     public function authorize()
     {
-        return false;
+        return auth()->check() == true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
     public function rules()
     {
         return [
-            //
+            'name' => ['required', 'string', 'max:255', 'unique:brands,name'],
+            'link' => ['nullable', 'url', 'unique:brands,link'],
+            'image' => ['required', 'mimes:jpg,png,jpeg', 'max:1024']
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'name' => 'نام برند',
+            'link' => 'لینک برند',
+            'image' => 'تصویر برند'
         ];
     }
 }

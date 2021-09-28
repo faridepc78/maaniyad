@@ -37,6 +37,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'my_auth', 'throttle:
 
     Route::resource('team', 'TeamController')->except('show');
 
+    Route::resource('brands', 'BrandController')->except('show');
+
+    Route::resource('services', 'ServiceController')->except('show');
+
+    Route::resource('feedbacks', 'FeedbackController')->except('show');
+
 });
 
 /*END ADMIN*/
