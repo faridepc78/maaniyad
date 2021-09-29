@@ -17,12 +17,12 @@ class CreateTeamTable extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->string('job');
-            $table->string('telegram')->nullable();
-            $table->string('instagram')->nullable();
-            $table->string('linkedin')->nullable();
-            $table->string('facebook')->nullable();
-            $table->string('twitter')->nullable();
-            $table->string('email')->nullable();
+            $table->string('telegram')->unique()->nullable();
+            $table->string('instagram')->unique()->nullable();
+            $table->string('linkedin')->unique()->nullable();
+            $table->string('facebook')->unique()->nullable();
+            $table->string('twitter')->unique()->nullable();
+            $table->string('email')->unique()->nullable();
             $table->unsignedBigInteger('image_id')->nullable();
             $table->timestamps();
 

@@ -54,4 +54,18 @@ class ServiceRepository
                 'image_id' => $image_id
             ]);
     }
+
+    public function get($count = null)
+    {
+        if ($count == null) {
+            return Service::query()
+                ->latest()
+                ->get();
+        } else {
+            return Service::query()
+                ->limit($count)
+                ->latest()
+                ->get();
+        }
+    }
 }

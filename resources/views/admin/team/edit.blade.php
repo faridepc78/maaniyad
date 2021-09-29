@@ -168,7 +168,7 @@
                                 <div class="form-group">
                                     <label for="image">تصویر عضو تیم</label>
 
-                                    <img class="img-bordered" style="width: 250px;height: 100px"
+                                    <img class="img-bordered" style="width: 100px;height: 100px"
                                          src="{{$team->image->original}}"
                                          alt="{{$team->image->original}}">
 

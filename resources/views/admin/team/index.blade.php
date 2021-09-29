@@ -62,7 +62,7 @@
                                                 </a>
                                             </td>
 
-                                            <td><img class="img-bordered" style="width: 250px;height: 100px"
+                                            <td><img class="img-bordered" style="width: 100px;height: 100px"
                                                      src="{{$value->image->original}}"
                                                      alt="{{$value->image->original}}"></td>
                                             <td>

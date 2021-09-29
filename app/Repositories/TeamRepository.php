@@ -60,4 +60,18 @@ class TeamRepository
                 'image_id' => $image_id
             ]);
     }
+
+    public function get($count = null)
+    {
+        if ($count == null) {
+            return Team::query()
+                ->latest()
+                ->get();
+        } else {
+            return Team::query()
+                ->limit($count)
+                ->latest()
+                ->get();
+        }
+    }
 }

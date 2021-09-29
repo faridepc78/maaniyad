@@ -11,6 +11,13 @@ class UpdateServiceRequest extends FormRequest
         return auth()->check() == true;
     }
 
+    public function prepareForValidation()
+    {
+        return $this->merge([
+            'slug' => str_slug_persian(request('slug'))
+        ]);
+    }
+
     public function rules()
     {
         $id = request()->route('service');

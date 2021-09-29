@@ -65,4 +65,18 @@ class ProjectRepository
                 'image_id' => $image_id
             ]);
     }
+
+    public function get($count = null)
+    {
+        if ($count == null) {
+            return Project::query()
+                ->latest()
+                ->get();
+        } else {
+            return Project::query()
+                ->limit($count)
+                ->latest()
+                ->get();
+        }
+    }
 }

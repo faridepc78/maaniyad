@@ -16,12 +16,12 @@ class StoreTeamRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255', 'unique:team,name'],
             'job' => ['required', 'string', 'max:255'],
-            'telegram' => ['nullable', 'url'],
-            'instagram' => ['nullable', 'url'],
-            'linkedin' => ['nullable', 'url'],
-            'facebook' => ['nullable', 'url'],
-            'twitter' => ['nullable', 'url'],
-            'email' => ['nullable', 'email'],
+            'telegram' => ['nullable', 'url', 'unique:team,telegram'],
+            'instagram' => ['nullable', 'url', 'unique:team,instagram'],
+            'linkedin' => ['nullable', 'url', 'unique:team,linkedin'],
+            'facebook' => ['nullable', 'url', 'unique:team,facebook'],
+            'twitter' => ['nullable', 'url', 'unique:team,twitter'],
+            'email' => ['nullable', 'email', 'unique:team,email'],
             'image' => ['required', 'mimes:jpg,png,jpeg', 'max:1024']
         ];
     }

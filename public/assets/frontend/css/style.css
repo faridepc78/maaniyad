@@ -1404,18 +1404,6 @@ Main Banner CSS
   background-repeat: no-repeat;
 }
 
-.item-bg1 {
-  background-image: url(../../frontend/images/main-banner1.jpg);
-}
-
-.item-bg2 {
-  background-image: url(../../frontend/images/main-banner2.jpg);
-}
-
-.item-bg3 {
-  background-image: url(../../frontend/images/main-banner3.jpg);
-}
-
 .main-banner-content {
   text-align: center;
   max-width: 770px;
@@ -2780,30 +2768,6 @@ Projects Area CSS
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-}
-
-.single-projects-box.bg-1 {
-  background-image: url(../../frontend/images/projects-img1.jpg);
-}
-
-.single-projects-box.bg-2 {
-  background-image: url(../../frontend/images/projects-img2.jpg);
-}
-
-.single-projects-box.bg-3 {
-  background-image: url(../../frontend/images/projects-img3.jpg);
-}
-
-.single-projects-box.bg-4 {
-  background-image: url(../../frontend/images/projects-img4.jpg);
-}
-
-.single-projects-box.bg-5 {
-  background-image: url(../../frontend/images/projects-img5.jpg);
-}
-
-.single-projects-box.bg-6 {
-  background-image: url(../../frontend/images/projects-img6.jpg);
 }
 
 .single-projects-box .details-btn {

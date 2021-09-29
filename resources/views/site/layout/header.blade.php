@@ -51,6 +51,8 @@
     <link type="text/css" rel="stylesheet" href="{{asset('assets/frontend/css/rtl.css')}}">
     <link type="text/css" rel="stylesheet" href="{{asset('assets/frontend/css/responsive.css')}}">
 
+    <link type="text/css" rel="stylesheet" href="{{asset('assets/backend/plugins/font-awesome/css/font-awesome.min.css')}}">
+
     @yield('site_css')
 
 </head>

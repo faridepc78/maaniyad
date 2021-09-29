@@ -10,7 +10,7 @@
         <div class="container">
             <div class="zovio-responsive-menu">
                 <div class="logo">
-                    <a href="index-2.html">
+                    <a href="{{route('home')}}">
                         <img src="{{asset('assets/frontend/images/logo.png')}}" alt="logo">
                     </a>
                 </div>
@@ -20,7 +20,7 @@
 
     <div class="zovio-nav">
         <nav class="navbar navbar-expand-md navbar-light">
-            <a class="navbar-brand" href="index-2.html">
+            <a class="navbar-brand" href="{{route('home')}}">
                 <img src="{{asset('assets/frontend/images/logo.png')}}" alt="logo">
             </a>
 
@@ -193,69 +193,7 @@
 </div>
 <!-- End Sidebar Modal -->
 
-<!-- Start Main Banner Area -->
-<div class="home-slides-two owl-carousel owl-theme">
-    <div class="main-banner item-bg2 jarallax" data-jarallax='{"speed": 0.3}'>
-        <div class="d-table">
-            <div class="d-table-cell">
-                <div class="container">
-                    <div class="main-banner-content">
-                        <h1>خانه های مسکونی</h1>
-                        <p>لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40 سال استاندارد
-                            صنعت بوده است. لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40
-                            سال استاندارد صنعت بوده است.</p>
-
-                        <div class="btn-box">
-                            <a href="#" class="default-btn">نقل و قول <span></span></a>
-                            <a href="#" class="optional-btn">اطلاعات بیشتر <span></span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="main-banner item-bg3 jarallax" data-jarallax='{"speed": 0.3}'>
-        <div class="d-table">
-            <div class="d-table-cell">
-                <div class="container">
-                    <div class="main-banner-content">
-                        <h1>خانه های مسکونی</h1>
-                        <p>لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40 سال استاندارد
-                            صنعت بوده است. لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40
-                            سال استاندارد صنعت بوده است.</p>
-
-                        <div class="btn-box">
-                            <a href="#" class="default-btn">نقل و قول <span></span></a>
-                            <a href="#" class="optional-btn">اطلاعات بیشتر <span></span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="main-banner item-bg1 jarallax" data-jarallax='{"speed": 0.3}'>
-        <div class="d-table">
-            <div class="d-table-cell">
-                <div class="container">
-                    <div class="main-banner-content">
-                        <h1>خانه های مسکونی</h1>
-                        <p>لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40 سال استاندارد
-                            صنعت بوده است. لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40
-                            سال استاندارد صنعت بوده است.</p>
-
-                        <div class="btn-box">
-                            <a href="#" class="default-btn">نقل و قول <span></span></a>
-                            <a href="#" class="optional-btn">اطلاعات بیشتر <span></span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Main Banner Area -->
+@include('site.home.sliders')
 
 <!-- Start About Area -->
 <div class="about-section ptb-100 pb-0">
@@ -264,7 +202,7 @@
             <div class="col-lg-7 col-md-12">
                 <div class="about-text">
                     <span class="sub-title">ما چه کسی هستیم</span>
-                    <h2>ما استودیوی طراح داخلی هستیم</span></h2>
+                    <h2>ما استودیوی طراح داخلی هستیم</h2>
                     <p>لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40 سال استاندارد صنعت
                         بوده است.</p>
                     <div class="quote">
@@ -399,104 +337,7 @@
 </section>
 <!-- End Fun Facts Area -->
 
-<!-- Start Services Area -->
-<section class="services-section ptb-100 jarallax" data-jarallax='{"speed": 0.3}'>
-    <div class="container">
-        <div class="section-title">
-            <span class="sub-title">ما چکار می کنیم</span>
-            <h2>ما اشتیاق به خدمات داخلی را تحریک می کنیم</h2>
-            <p>لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40 سال استاندارد صنعت بوده
-                است.</p>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="services-box">
-                    <div class="icon">
-                        <i class="flaticon-double-bed"></i>
-                    </div>
-
-                    <h3><a href="#">طراحی داخلی</a></h3>
-                    <p>لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40 سال استاندارد صنعت
-                        بوده است. لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40 سال
-                        استاندارد صنعت بوده است.</p>
-                    <a href="#" class="read-more-btn">ادامه خواندن</a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="services-box">
-                    <div class="icon">
-                        <i class="flaticon-hotel"></i>
-                    </div>
-
-                    <h3><a href="#">هندسه معماری</a></h3>
-                    <p>لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40 سال استاندارد صنعت
-                        بوده است. لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40 سال
-                        استاندارد صنعت بوده است.</p>
-                    <a href="#" class="read-more-btn">ادامه خواندن</a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="services-box">
-                    <div class="icon">
-                        <i class="flaticon-living-room"></i>
-                    </div>
-
-                    <h3><a href="#">ظاهر بیرونی</a></h3>
-                    <p>لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40 سال استاندارد صنعت
-                        بوده است. لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40 سال
-                        استاندارد صنعت بوده است.</p>
-                    <a href="#" class="read-more-btn">ادامه خواندن</a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="services-box">
-                    <div class="icon">
-                        <i class="flaticon-home"></i>
-                    </div>
-
-                    <h3><a href="#">طراحی دکور</a></h3>
-                    <p>لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40 سال استاندارد صنعت
-                        بوده است. لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40 سال
-                        استاندارد صنعت بوده است.</p>
-                    <a href="#" class="read-more-btn">ادامه خواندن</a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="services-box">
-                    <div class="icon">
-                        <i class="flaticon-kitchen"></i>
-                    </div>
-
-                    <h3><a href="#">مبلمان خانگی</a></h3>
-                    <p>لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40 سال استاندارد صنعت
-                        بوده است. لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40 سال
-                        استاندارد صنعت بوده است.</p>
-                    <a href="#" class="read-more-btn">ادامه خواندن</a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="services-box">
-                    <div class="icon">
-                        <i class="flaticon-sketch"></i>
-                    </div>
-
-                    <h3><a href="#">برنامه ریزی</a></h3>
-                    <p>لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40 سال استاندارد صنعت
-                        بوده است. لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40 سال
-                        استاندارد صنعت بوده است.</p>
-                    <a href="#" class="read-more-btn">ادامه خواندن</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Services Area -->
+@include('site.home.services')
 
 <!-- Start How We Work Area -->
 <section class="how-we-work-section ptb-100 pt-0">
@@ -557,161 +398,9 @@
 </section>
 <!-- End How We Work Area -->
 
-<!-- Start Projects Area -->
-<section class="projects-area ptb-100 pt-0">
-    <div class="container">
-        <div class="section-title">
-            <span class="sub-title">پروژه های ما</span>
-            <h2>کارهای ما</h2>
-            <p>لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40 سال استاندارد صنعت بوده
-                است.</p>
-        </div>
-    </div>
+@include('site.home.projects')
 
-    <div class="container-fluid">
-        <div class="row m-0">
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="single-projects-box bg-1">
-                    <div class="projects-content">
-                        <h3><a href="#">طراحی داخلی</a></h3>
-                        <span class="category">هندسه معماری</span>
-                    </div>
-
-                    <a href="#" class="details-btn"></a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="single-projects-box bg-2">
-                    <div class="projects-content">
-                        <h3><a href="#">طراحی کلاسیک</a></h3>
-                        <span class="category">تعیین درصد</span>
-                    </div>
-
-                    <a href="#" class="details-btn"></a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="single-projects-box bg-3">
-                    <div class="projects-content">
-                        <h3><a href="#">طراحی ویدیو</a></h3>
-                        <span class="category">طراحی گرافیک</span>
-                    </div>
-
-                    <a href="#" class="details-btn"></a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="single-projects-box bg-4">
-                    <div class="projects-content">
-                        <h3><a href="#">تصویر کامل</a></h3>
-                        <span class="category">هندسه معماری</span>
-                    </div>
-
-                    <a href="#" class="details-btn"></a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="single-projects-box bg-5">
-                    <div class="projects-content">
-                        <h3><a href="#">دیوارها</a></h3>
-                        <span class="category">قاب عکس</span>
-                    </div>
-
-                    <a href="#" class="details-btn"></a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="single-projects-box bg-6">
-                    <div class="projects-content">
-                        <h3><a href="#">کارخانه کمد</a></h3>
-                        <span class="category">دیوارها</span>
-                    </div>
-
-                    <a href="#" class="details-btn"></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Projects Area -->
-
-<!-- Start Team Area -->
-<section class="team-section ptb-100 bg-faf5f5">
-    <div class="container">
-        <div class="section-title">
-            <span class="sub-title">کارشناسان ما</span>
-            <h2>تیم خلاق ما</h2>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="single-team-member">
-                    <div class="member-image">
-                        <img src="assets/frontend/images/team1.jpg" alt="image">
-
-                        <ul class="social">
-                            <li><a href="#" target="_blank"><i class="flaticon-facebook-logo"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="flaticon-twitter"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="flaticon-instagram"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="flaticon-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-
-                    <div class="member-content">
-                        <h3>سوزان لوئیس</h3>
-                        <span>مدیر عامل و موسس</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="single-team-member">
-                    <div class="member-image">
-                        <img src="assets/frontend/images/team2.jpg" alt="image">
-
-                        <ul class="social">
-                            <li><a href="#" target="_blank"><i class="flaticon-facebook-logo"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="flaticon-twitter"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="flaticon-instagram"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="flaticon-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-
-                    <div class="member-content">
-                        <h3>رز کاپا</h3>
-                        <span>مدیر تیم ورزشی</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-0 offset-md-3 offset-sm-3">
-                <div class="single-team-member">
-                    <div class="member-image">
-                        <img src="assets/frontend/images/team3.jpg" alt="image">
-
-                        <ul class="social">
-                            <li><a href="#" target="_blank"><i class="flaticon-facebook-logo"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="flaticon-twitter"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="flaticon-instagram"></i></a></li>
-                            <li><a href="#" target="_blank"><i class="flaticon-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-
-                    <div class="member-content">
-                        <h3>روزانا پتی</h3>
-                        <span>معمار</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Team Area -->
+@include('site.home.team')
 
 <!-- Start Testimonials Area -->
 <section class="testimonials-area ptb-100">

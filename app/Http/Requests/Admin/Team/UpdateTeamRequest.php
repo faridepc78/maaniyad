@@ -18,12 +18,12 @@ class UpdateTeamRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255', 'unique:team,name,' . $id],
             'job' => ['required', 'string', 'max:255'],
-            'telegram' => ['nullable', 'url'],
-            'instagram' => ['nullable', 'url'],
-            'linkedin' => ['nullable', 'url'],
-            'facebook' => ['nullable', 'url'],
-            'twitter' => ['nullable', 'url'],
-            'email' => ['nullable', 'email'],
+            'telegram' => ['nullable', 'url', 'unique:team,telegram,' . $id],
+            'instagram' => ['nullable', 'url', 'unique:team,instagram,' . $id],
+            'linkedin' => ['nullable', 'url', 'unique:team,linkedin,' . $id],
+            'facebook' => ['nullable', 'url', 'unique:team,facebook,' . $id],
+            'twitter' => ['nullable', 'url', 'unique:team,twitter,' . $id],
+            'email' => ['nullable', 'email', 'unique:team,email,' . $id],
             'image' => ['nullable', 'mimes:jpg,png,jpeg', 'max:1024']
         ];
     }

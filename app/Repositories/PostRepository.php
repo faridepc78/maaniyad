@@ -63,4 +63,20 @@ class PostRepository
                 'status' => $values['status']
             ]);
     }
+
+    public function get($count = null)
+    {
+        if ($count == null) {
+            return Post::query()
+                ->where('status', '=', Post::ACTIVE)
+                ->latest()
+                ->get();
+        } else {
+            return Post::query()
+                ->where('status', '=', Post::ACTIVE)
+                ->limit($count)
+                ->latest()
+                ->get();
+        }
+    }
 }
