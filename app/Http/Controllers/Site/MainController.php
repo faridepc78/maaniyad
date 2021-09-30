@@ -50,4 +50,44 @@ class MainController extends Controller
         return view('site.home.index', compact('sliders', 'brands',
             'feedbacks', 'team', 'projects', 'posts', 'services'));
     }
+
+    public function about_us()
+    {
+        return view('site.about-us.index');
+    }
+
+    public function services()
+    {
+        $services = $this->serviceRepository->get();
+        return view('site.services.index', compact('services'));
+    }
+
+    public function service($slug)
+    {
+        $service = $this->serviceRepository->findById(extractId($slug));
+        return view('site.services.single.index', compact('service'));
+    }
+
+    public function team()
+    {
+        $team = $this->teamRepository->get();
+        return view('site.team.index', compact('team'));
+    }
+
+    public function faq()
+    {
+        return view('site.faq.index');
+    }
+
+    public function projects()
+    {
+        $projects = $this->projectRepository->site_paginate();
+        return view('site.projects.index', compact('projects'));
+    }
+
+    public function project($slug)
+    {
+        $project = $this->projectRepository->findById(extractId($slug));
+        return view('site.projects.single.index', compact('project'));
+    }
 }

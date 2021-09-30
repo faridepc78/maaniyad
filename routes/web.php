@@ -69,6 +69,18 @@ Route::group(['prefix' => '/', 'middleware' => ['web', 'throttle:50,1'],
 
     Route::get('/', 'MainController@home')->name('home');
 
+    Route::get('about-us', 'MainController@about_us')->name('about-us');
+
+    Route::get('services', 'MainController@services')->name('services');
+    Route::get('services/{slug}', 'MainController@service')->name('service');
+
+    Route::get('team','MainController@team')->name('team');
+
+    Route::get('faq','MainController@faq')->name('faq');
+
+    Route::get('projects', 'MainController@projects')->name('projects');
+    Route::get('project/{slug}', 'MainController@project')->name('project');
+
 });
 
 /*END SITE*/

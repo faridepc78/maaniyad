@@ -1,4 +1,3 @@
-<!-- Start Services Area -->
 <section class="services-section ptb-100 jarallax" data-jarallax='{"speed": 0.3}'>
     <div class="container">
 
@@ -21,9 +20,9 @@
                                 <i class="{{$value->icon}}"></i>
                             </div>
 
-                            <h3><a href="#">{{$value->name}}</a></h3>
+                            <h3><a href="{{$value->path()}}">{{$value->name}}</a></h3>
                             <p>{{$value->bio}}</p>
-                            <a href="#" class="read-more-btn">ادامه خواندن</a>
+                            <a href="{{$value->path()}}" class="read-more-btn">ادامه خواندن</a>
                         </div>
                     </div>
 

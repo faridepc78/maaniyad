@@ -66,17 +66,18 @@ class ProjectRepository
             ]);
     }
 
-    public function get($count = null)
+    public function get($count)
     {
-        if ($count == null) {
-            return Project::query()
-                ->latest()
-                ->get();
-        } else {
-            return Project::query()
-                ->limit($count)
-                ->latest()
-                ->get();
-        }
+        return Project::query()
+            ->limit($count)
+            ->latest()
+            ->get();
+    }
+
+    public function site_paginate()
+    {
+        return Project::query()
+            ->latest()
+            ->paginate(12);
     }
 }

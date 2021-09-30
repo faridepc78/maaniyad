@@ -1,10 +1,24 @@
+@section('site_title')
+    <title>مانیاد | تیم ما</title>
+@endsection
+
+@include('site.layout.header')
+
+<div class="page-title-area page-title-bg1 jarallax" data-jarallax='{"speed": 0.3}'>
+    <div class="d-table">
+        <div class="d-table-cell">
+            <div class="container">
+                <div class="page-title-content">
+                    <h2>تیم ما</h2>
+                    <p>با کارشناسان خلاق ما ملاقات کنید</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <section class="team-section ptb-100 bg-faf5f5">
     <div class="container">
-        <div class="section-title">
-            <span class="sub-title">کارشناسان ما</span>
-            <h2>تیم خلاق ما</h2>
-        </div>
-
         <div class="row">
 
             @if (count($team))
@@ -44,8 +58,8 @@
                                     @endif
 
                                     @if ($value->email!=null)
-                                            <li><a href="{{$value->email}}" target="_blank"><i
-                                                        class="fa fa-google"></i></a></li>
+                                        <li><a href="{{$value->email}}" target="_blank"><i
+                                                    class="fa fa-google"></i></a></li>
                                     @endif
 
                                 </ul>
@@ -66,3 +80,5 @@
         </div>
     </div>
 </section>
+
+@include('site.layout.footer')

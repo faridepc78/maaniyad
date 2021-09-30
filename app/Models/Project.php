@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Vinkla\Hashids\Facades\Hashids;
 
 class Project extends Model
 {
@@ -39,5 +40,10 @@ class Project extends Model
     public function gallery()
     {
         return $this->hasMany(ProjectGallery::class, 'project_id', 'id');
+    }
+
+    public function path()
+    {
+        return route('project', Hashids::encode($this->id) . '-' . $this->slug);
     }
 }
