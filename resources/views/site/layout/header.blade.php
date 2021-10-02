@@ -52,9 +52,8 @@
     <link type="text/css" rel="stylesheet" href="{{asset('assets/frontend/css/responsive.css')}}">
     <link type="text/css" rel="stylesheet" href="{{asset('assets/common/plugins/validation/css/validate.css')}}">
     <link type="text/css" rel="stylesheet" href="{{asset('assets/common/plugins/toast/css/toast.min.css')}}">
-
     <link type="text/css" rel="stylesheet"
-          href="{{asset('assets/backend/plugins/font-awesome/css/font-awesome.min.css')}}">
+          href="{{asset('assets/common/plugins/font-awesome/css/font-awesome.min.css')}}">
 
     @yield('site_css')
 
@@ -91,6 +90,12 @@
             <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                 <ul class="navbar-nav">
 
+                    @auth()
+                        <li class="nav-item"><a target="_blank" href="{{route('dashboard')}}"
+                                                class="nav-link">پنل مدیریت</a>
+                        </li>
+                    @endauth
+
                     <li class="nav-item"><a href="{{route('home')}}"
                                             class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}">صفحه
                             اصلی</a>
@@ -118,12 +123,12 @@
                     </li>
 
                     <li class="nav-item"><a href="{{route('projects')}}"
-                                            class="nav-link {{ request()->routeIs('projects') ? 'active' : '' }}">پروژه
+                                            class="nav-link {{ request()->routeIs(['projects','projects.category','project','projects.search']) ? 'active' : '' }}">پروژه
                             ها</a>
                     </li>
 
                     <li class="nav-item"><a href="{{route('blog')}}"
-                                            class="nav-link {{ request()->routeIs('blog') ? 'active' : '' }}">وبلاگ</a>
+                                            class="nav-link {{ request()->routeIs(['blog','blog.category','blog.post','blog.search']) ? 'active' : '' }}">وبلاگ</a>
                     </li>
 
                     <li class="nav-item"><a href="{{route('about-us')}}"

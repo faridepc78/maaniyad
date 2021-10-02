@@ -22,6 +22,8 @@ class CreatePostsCommentsTable extends Migration
             $table->string('site')->nullable();
             $table->longText('message');
             $table->longText('answer')->nullable();
+            $table->string('admin_name')->nullable();
+            $table->string('admin_profile')->nullable();
             $table->enum('status', \App\Models\PostComment::$statuses)
                 ->default(\App\Models\PostComment::PENDING);
             $table->timestamps();

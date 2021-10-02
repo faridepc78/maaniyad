@@ -50,6 +50,11 @@ class Post extends Model
         return $this->hasMany(PostMedia::class, 'post_id', 'id');
     }
 
+    public function comments()
+    {
+        return $this->hasMany(PostComment::class, 'post_id', 'id');
+    }
+
     public function status()
     {
         if ($this->status == Post::ACTIVE) {

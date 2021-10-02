@@ -11,7 +11,7 @@
 
     @yield('admin_title')
 
-    <link type="text/css" rel="stylesheet" href="{{asset('assets/backend/plugins/font-awesome/css/font-awesome.min.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{asset('assets/common/plugins/font-awesome/css/font-awesome.min.css')}}">
     <link type="text/css" rel="stylesheet" href="{{asset('assets/backend/css/adminlte.min.css')}}">
     <link type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="{{asset('assets/backend/css/bootstrap-rtl.min.css')}}">

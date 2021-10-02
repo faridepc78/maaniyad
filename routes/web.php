@@ -50,6 +50,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'my_auth', 'throttle:
 
     Route::resource('feedbacks', 'FeedbackController')->except('show');
 
+    Route::resource('faqs', 'FaqController')->except('show');
+
     Route::get('contacts', 'ContactController@index')->name('contacts.index');
     Route::get('contacts/single/{id}', 'ContactController@single')->name('contacts.single');
 

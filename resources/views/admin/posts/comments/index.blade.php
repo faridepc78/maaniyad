@@ -158,14 +158,6 @@
 
                                             </div>
 
-                                        @else
-
-                                            <div class="alert alert-danger text-center">
-                                                <p>اطلاعات این بخش ثبت نشده است</p>
-                                            </div>
-
-                                            @break
-
                                         @endif
 
                                     @endforeach

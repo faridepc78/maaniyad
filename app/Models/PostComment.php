@@ -24,7 +24,10 @@ class PostComment extends Model
             'mobile',
             'site',
             'message',
-            'answer'
+            'answer',
+            'admin_name',
+            'admin_profile',
+            'status'
         ];
 
     const PENDING = 'pending';
@@ -36,6 +39,12 @@ class PostComment extends Model
             self::ACTIVE,
             self::INACTIVE
         ];
+
+    public function getGravatarAttribute()
+    {
+        $hash = md5(strtolower(trim($this->attributes['email'])));
+        return "https://www.gravatar.com/avatar/$hash?d=mm";
+    }
 
     public function post()
     {

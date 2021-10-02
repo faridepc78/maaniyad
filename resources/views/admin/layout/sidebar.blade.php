@@ -159,7 +159,8 @@
 'posts_categories.edit',
 'posts.media.index',
 'posts.comments.pending',
-'posts.comments.index']) ? 'menu-open' : '' }}">
+'posts.comments.index',
+'posts.comments.single']) ? 'menu-open' : '' }}">
 
                         <a href="#"
                            class="nav-link {{ request()->routeIs(['posts.index',
@@ -170,7 +171,8 @@
 'posts_categories.edit',
 'posts.media.index',
 'posts.comments.pending',
-'posts.comments.index']) ? 'active' : '' }}">
+'posts.comments.index',
+'posts.comments.single']) ? 'active' : '' }}">
                             <i class="nav-icon fa fa-paper-plane"></i>
                             <p>
                                 پست ها
@@ -333,6 +335,42 @@
                                    class="nav-link {{ request()->routeIs('services.create') ? 'active' : '' }}">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>ایجاد خدمات</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item has-treeview {{ request()->routeIs(['faqs.index',
+'faqs.create',
+'faqs.edit']) ? 'menu-open' : '' }}">
+
+                        <a href="#"
+                           class="nav-link {{ request()->routeIs(['faqs.index',
+'faqs.create',
+'faqs.edit']) ? 'active' : '' }}">
+                            <i class="nav-icon fa fa-question"></i>
+                            <p>
+                                سوالات متداول
+                                <i class="fa fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+                                <a href="{{ route('faqs.index') }}"
+                                   class="nav-link {{ request()->routeIs(['faqs.index']) ? 'active' : '' }}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>مدیریت سوالات متداول</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ route('faqs.create') }}"
+                                   class="nav-link {{ request()->routeIs('faqs.create') ? 'active' : '' }}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>ایجاد سوالات متداول</p>
                                 </a>
                             </li>
 

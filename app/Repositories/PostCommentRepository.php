@@ -72,7 +72,22 @@ class PostCommentRepository
             ->where('id', '=', $id)
             ->update([
                 'status' => $values['status'],
-                'answer' => $values['answer']
+                'answer' => $values['answer'],
+                'admin_name' => $values['admin_name'],
+                'admin_profile' => $values['admin_profile']
             ]);
+    }
+
+    public function getActiveAllByPostId($post_id)
+    {
+        $data =
+            [
+                ['post_id', '=', $post_id],
+                ['status', '=', PostComment::ACTIVE]
+            ];
+        return PostComment::query()
+            ->where($data)
+            ->latest()
+            ->paginate(20);
     }
 }

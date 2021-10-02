@@ -90,25 +90,31 @@
 
                                                 <td>
                                                     <a href="{{ route('posts.comments.update_status', $value->id) }}"
-                                                       onclick="updateStatusPostComment(event, {{ $value->id }},'آیا از تایید اطمینان دارید ؟')"><i
+                                                       onclick="updateStatusPostComment(event, {{ $value->id }},'آیا از تایید اطمینان دارید ؟','active')"><i
                                                             class="fa fa-check text-success"></i></a>
-                                                    <form action="{{ route('posts.comments.update_status', $value->id) }}"
-                                                          method="post" id="updateStatus-PostComment-{{ $value->id }}">
+                                                    <form
+                                                        action="{{ route('posts.comments.update_status', $value->id) }}"
+                                                        method="post"
+                                                        id="updateStatusActive-PostComment-{{ $value->id }}">
                                                         @csrf
                                                         @method('patch')
-                                                        <input type="hidden" name="status" value="{{\App\Models\PostComment::ACTIVE}}">
+                                                        <input type="hidden" name="status"
+                                                               value="{{\App\Models\PostComment::ACTIVE}}">
                                                     </form>
                                                 </td>
 
                                                 <td>
                                                     <a href="{{ route('posts.comments.update_status', $value->id) }}"
-                                                       onclick="updateStatusPostComment(event, {{ $value->id }},'آیا از رد کردن اطمینان دارید ؟')"><i
+                                                       onclick="updateStatusPostComment(event, {{ $value->id }},'آیا از رد کردن اطمینان دارید ؟','inactive')"><i
                                                             class="fa fa-ban text-danger"></i></a>
-                                                    <form action="{{ route('posts.comments.update_status', $value->id) }}"
-                                                          method="post" id="updateStatus-PostComment-{{ $value->id }}">
+                                                    <form
+                                                        action="{{ route('posts.comments.update_status', $value->id) }}"
+                                                        method="post"
+                                                        id="updateStatusInActive-PostComment-{{ $value->id }}">
                                                         @csrf
                                                         @method('patch')
-                                                        <input type="hidden" name="status" value="{{\App\Models\PostComment::INACTIVE}}">
+                                                        <input type="hidden" name="status"
+                                                               value="{{\App\Models\PostComment::INACTIVE}}">
                                                     </form>
                                                 </td>
 
@@ -120,7 +126,8 @@
                                                           method="post" id="destroy-PostComment-{{ $value->id }}">
                                                         @csrf
                                                         @method('delete')
-                                                        <input type="hidden" name="route" value="{{Route::current()->getName()}}">
+                                                        <input type="hidden" name="route"
+                                                               value="{{Route::current()->getName()}}">
                                                     </form>
                                                 </td>
                                             </tr>
@@ -233,7 +240,7 @@
         })
     }
 
-    function updateStatusPostComment(event, id,message) {
+    function updateStatusPostComment(event, id, message, status) {
         event.preventDefault();
         Swal.fire({
             title: `${message}`,
@@ -245,7 +252,11 @@
             cancelButtonText: 'خیر'
         }).then((result) => {
             if (result.isConfirmed) {
-                document.getElementById(`updateStatus-PostComment-${id}`).submit()
+                if (status === 'active') {
+                    document.getElementById(`updateStatusActive-PostComment-${id}`).submit()
+                } else if (status === 'inactive') {
+                    document.getElementById(`updateStatusInActive-PostComment-${id}`).submit()
+                }
             }
         })
     }

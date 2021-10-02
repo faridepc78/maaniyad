@@ -36,8 +36,11 @@ class BlogController extends Controller
         $post_id = extractId($slug);
         $post = $this->postRepository->findById($post_id);
         $related_posts = $this->postRepository->related($post->category->id, $post_id);
+        $comments = $this->postCommentRepository->getActiveAllByPostId($post_id);
+        $count_comments = count($comments);
         return view('site.blog.post.index',
-            compact('post', 'related_posts'));
+            compact('post', 'related_posts',
+                'comments', 'count_comments'));
     }
 
     public function category($slug)

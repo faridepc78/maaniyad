@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Site\ContactUs\ContactUsRequest;
 use App\Repositories\BrandRepository;
 use App\Repositories\ContactUsRepository;
+use App\Repositories\FaqRepository;
 use App\Repositories\FeedbackRepository;
 use App\Repositories\PostRepository;
 use App\Repositories\ProjectCategoryRepository;
@@ -27,6 +28,7 @@ class MainController extends Controller
     private $postRepository;
     private $serviceRepository;
     private $contactUsRepository;
+    private $faqRepository;
 
     public function __construct(SliderRepository          $sliderRepository,
                                 BrandRepository           $brandRepository,
@@ -36,7 +38,8 @@ class MainController extends Controller
                                 ProjectCategoryRepository $projectCategoryRepository,
                                 PostRepository            $postRepository,
                                 ServiceRepository         $serviceRepository,
-                                ContactUsRepository       $contactUsRepository)
+                                ContactUsRepository       $contactUsRepository,
+                                FaqRepository             $faqRepository)
     {
         $this->sliderRepository = $sliderRepository;
         $this->brandRepository = $brandRepository;
@@ -47,6 +50,7 @@ class MainController extends Controller
         $this->postRepository = $postRepository;
         $this->serviceRepository = $serviceRepository;
         $this->contactUsRepository = $contactUsRepository;
+        $this->faqRepository = $faqRepository;
     }
 
     public function home()
@@ -103,7 +107,8 @@ class MainController extends Controller
 
     public function faq()
     {
-        return view('site.faq.index');
+        $faqs = $this->faqRepository->getAll();
+        return view('site.faq.index', compact('faqs'));
     }
 
     public function projects()

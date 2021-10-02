@@ -66,6 +66,6 @@ class PostCommentController extends Controller
         } catch (Exception $exception) {
             newFeedback('پیام', 'عملیات با شکست مواجه شد', 'error');
         }
-        return redirect()->route('posts.comments.index');
+        return redirect()->route('posts.comments.pending');
     }
 }
