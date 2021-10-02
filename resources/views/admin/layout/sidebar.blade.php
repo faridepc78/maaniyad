@@ -157,7 +157,9 @@
 'posts_categories.index',
 'posts_categories.create',
 'posts_categories.edit',
-'posts.media.index']) ? 'menu-open' : '' }}">
+'posts.media.index',
+'posts.comments.pending',
+'posts.comments.index']) ? 'menu-open' : '' }}">
 
                         <a href="#"
                            class="nav-link {{ request()->routeIs(['posts.index',
@@ -166,7 +168,9 @@
 'posts_categories.index',
 'posts_categories.create',
 'posts_categories.edit',
-'posts.media.index']) ? 'active' : '' }}">
+'posts.media.index',
+'posts.comments.pending',
+'posts.comments.index']) ? 'active' : '' }}">
                             <i class="nav-icon fa fa-paper-plane"></i>
                             <p>
                                 پست ها
@@ -205,6 +209,22 @@
                                    class="nav-link {{ request()->routeIs('posts.create') ? 'active' : '' }}">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>ایجاد پست ها</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ route('posts.comments.pending') }}"
+                                   class="nav-link {{ request()->routeIs(['posts.comments.pending']) ? 'active' : '' }}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p style="font-size: 14px">مدیریت نظرات در حال برسی</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ route('posts.comments.index') }}"
+                                   class="nav-link {{ request()->routeIs('posts.comments.index') ? 'active' : '' }}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>مدیریت نظرات</p>
                                 </a>
                             </li>
 
@@ -349,6 +369,32 @@
                                    class="nav-link {{ request()->routeIs('feedbacks.create') ? 'active' : '' }}">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>ایجاد نظرات مشتریان</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item has-treeview {{ request()->routeIs(['contacts.index',
+'contacts.single']) ? 'menu-open' : '' }}">
+
+                        <a href="#"
+                           class="nav-link {{ request()->routeIs(['contacts.index',
+'contacts.single']) ? 'active' : '' }}">
+                            <i class="nav-icon fa fa-phone"></i>
+                            <p>
+                                تماس ها
+                                <i class="fa fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+                                <a href="{{ route('contacts.index') }}"
+                                   class="nav-link {{ request()->routeIs(['contacts.index','contacts.single']) ? 'active' : '' }}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>مدیریت تماس ها</p>
                                 </a>
                             </li>
 

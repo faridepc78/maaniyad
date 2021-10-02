@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Vinkla\Hashids\Facades\Hashids;
 
 class ProjectCategory extends Model
 {
@@ -20,4 +21,9 @@ class ProjectCategory extends Model
             'created_at',
             'updated_at'
         ];
+
+    public function path()
+    {
+        return route('projects.category', Hashids::encode($this->id) . '-' . $this->slug);
+    }
 }

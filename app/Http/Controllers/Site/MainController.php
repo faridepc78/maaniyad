@@ -3,13 +3,18 @@
 namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Site\ContactUs\ContactUsRequest;
 use App\Repositories\BrandRepository;
+use App\Repositories\ContactUsRepository;
 use App\Repositories\FeedbackRepository;
 use App\Repositories\PostRepository;
+use App\Repositories\ProjectCategoryRepository;
 use App\Repositories\ProjectRepository;
 use App\Repositories\ServiceRepository;
 use App\Repositories\SliderRepository;
 use App\Repositories\TeamRepository;
+use Exception;
+use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
@@ -18,24 +23,30 @@ class MainController extends Controller
     private $feedbackRepository;
     private $teamRepository;
     private $projectRepository;
+    private $projectCategoryRepository;
     private $postRepository;
     private $serviceRepository;
+    private $contactUsRepository;
 
-    public function __construct(SliderRepository   $sliderRepository,
-                                BrandRepository    $brandRepository,
-                                FeedbackRepository $feedbackRepository,
-                                TeamRepository     $teamRepository,
-                                ProjectRepository  $projectRepository,
-                                PostRepository     $postRepository,
-                                ServiceRepository  $serviceRepository)
+    public function __construct(SliderRepository          $sliderRepository,
+                                BrandRepository           $brandRepository,
+                                FeedbackRepository        $feedbackRepository,
+                                TeamRepository            $teamRepository,
+                                ProjectRepository         $projectRepository,
+                                ProjectCategoryRepository $projectCategoryRepository,
+                                PostRepository            $postRepository,
+                                ServiceRepository         $serviceRepository,
+                                ContactUsRepository       $contactUsRepository)
     {
         $this->sliderRepository = $sliderRepository;
         $this->brandRepository = $brandRepository;
         $this->feedbackRepository = $feedbackRepository;
         $this->teamRepository = $teamRepository;
         $this->projectRepository = $projectRepository;
+        $this->projectCategoryRepository = $projectCategoryRepository;
         $this->postRepository = $postRepository;
         $this->serviceRepository = $serviceRepository;
+        $this->contactUsRepository = $contactUsRepository;
     }
 
     public function home()
@@ -54,6 +65,22 @@ class MainController extends Controller
     public function about_us()
     {
         return view('site.about-us.index');
+    }
+
+    public function contact_us()
+    {
+        return view('site.contact-us.index');
+    }
+
+    public function contact_us_send(ContactUsRequest $request)
+    {
+        try {
+            $this->contactUsRepository->store($request);
+            newFeedback('پیام', 'پیام شما با موفقیت ارسال شد', 'success');
+        } catch (Exception $exception) {
+            newFeedback('پیام', 'عملیات با شکست مواجه شد', 'error');
+        }
+        return redirect()->route('contact-us');
     }
 
     public function services()
@@ -85,9 +112,26 @@ class MainController extends Controller
         return view('site.projects.index', compact('projects'));
     }
 
+    public function projects_category($slug)
+    {
+        $category_id = extractId($slug);
+        $category = $this->projectCategoryRepository->findById($category_id);
+        $projects = $this->projectRepository->findByCategoryId($category_id);
+        return view('site.projects.category.index',
+            compact('category', 'projects'));
+    }
+
     public function project($slug)
     {
         $project = $this->projectRepository->findById(extractId($slug));
         return view('site.projects.single.index', compact('project'));
+    }
+
+    public function search(Request $request)
+    {
+        $keyword = $request->input('search');
+        $projects = $this->projectRepository->search($keyword);
+        return view('site.projects.search.index',
+            compact('keyword', 'projects'));
     }
 }

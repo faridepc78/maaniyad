@@ -80,4 +80,19 @@ class ProjectRepository
             ->latest()
             ->paginate(12);
     }
+
+    public function findByCategoryId($category_id)
+    {
+        return Project::query()
+            ->where('category_id', '=', $category_id)
+            ->latest()
+            ->paginate(12);
+    }
+
+    public function search($keyword)
+    {
+        return Project::query()
+            ->where('name', 'like', '%' . $keyword . '%')
+            ->paginate(12);
+    }
 }

@@ -50,8 +50,11 @@
     <link type="text/css" rel="stylesheet" href="{{asset('assets/frontend/css/style.css')}}">
     <link type="text/css" rel="stylesheet" href="{{asset('assets/frontend/css/rtl.css')}}">
     <link type="text/css" rel="stylesheet" href="{{asset('assets/frontend/css/responsive.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{asset('assets/common/plugins/validation/css/validate.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{asset('assets/common/plugins/toast/css/toast.min.css')}}">
 
-    <link type="text/css" rel="stylesheet" href="{{asset('assets/backend/plugins/font-awesome/css/font-awesome.min.css')}}">
+    <link type="text/css" rel="stylesheet"
+          href="{{asset('assets/backend/plugins/font-awesome/css/font-awesome.min.css')}}">
 
     @yield('site_css')
 
@@ -59,16 +62,13 @@
 
 <body>
 
-<!-- Preloader -->
 <div class="preloader">
     <div class="loader">
         <div class="shadow"></div>
         <div class="box"></div>
     </div>
 </div>
-<!-- End Preloader -->
 
-<!-- Start Navbar Area -->
 <div class="navbar-area navbar-style-two">
     <div class="zovio-responsive-nav">
         <div class="container">
@@ -91,94 +91,73 @@
             <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                 <ul class="navbar-nav">
 
-                    <li class="nav-item"><a href="#" class="nav-link active">صفحه اصلی</a>
+                    <li class="nav-item"><a href="{{route('home')}}"
+                                            class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}">صفحه
+                            اصلی</a>
                     </li>
 
-                    <li class="nav-item"><a href="#" class="nav-link">درباره ما <i
+                    <li class="nav-item"><a href="{{route('services')}}"
+                                            class="nav-link {{ request()->routeIs('services') ? 'active' : '' }}">خدمات</a>
+                    </li>
+
+                    <li class="nav-item"><a href="javascript:void(0)" class="nav-link">دسته بندی ها <i
                                 class="flaticon-down-chevron"></i></a>
                         <ul class="dropdown-menu">
-                            <li class="nav-item"><a href="about-1.html" class="nav-link">درباره ما 1</a></li>
+                            @if (count($categories))
 
-                            <li class="nav-item"><a href="about-2.html" class="nav-link">درباره ما 2</a></li>
+                                @foreach($categories as $value)
+
+                                    <li class="nav-item"><a href="{{$value->path()}}"
+                                                            class="nav-link">{{$value->name}}</a></li>
+
+                                @endforeach
+
+                            @endif
+
                         </ul>
                     </li>
 
-                    <li class="nav-item"><a href="#" class="nav-link">خدمات <i class="flaticon-down-chevron"></i></a>
-                        <ul class="dropdown-menu">
-                            <li class="nav-item"><a href="services-1.html" class="nav-link">خدمات 1</a></li>
-
-                            <li class="nav-item"><a href="services-2.html" class="nav-link">خدمات 2</a></li>
-
-                            <li class="nav-item"><a href="single-services.html" class="nav-link">خدمات جداگانه</a></li>
-                        </ul>
+                    <li class="nav-item"><a href="{{route('projects')}}"
+                                            class="nav-link {{ request()->routeIs('projects') ? 'active' : '' }}">پروژه
+                            ها</a>
                     </li>
 
-                    <li class="nav-item"><a href="#" class="nav-link">پروژه ها <i class="flaticon-down-chevron"></i></a>
-                        <ul class="dropdown-menu">
-                            <li class="nav-item"><a href="projects-1.html" class="nav-link">پروژه 1</a></li>
-
-                            <li class="nav-item"><a href="projects-2.html" class="nav-link">پروژه 2</a></li>
-
-                            <li class="nav-item"><a href="projects-3.html" class="nav-link">پروژه 3</a></li>
-
-                            <li class="nav-item"><a href="projects-4.html" class="nav-link">پروژه 4</a></li>
-
-                            <li class="nav-item"><a href="single-projects.html" class="nav-link">پروژه جداگانه</a></li>
-                        </ul>
+                    <li class="nav-item"><a href="{{route('blog')}}"
+                                            class="nav-link {{ request()->routeIs('blog') ? 'active' : '' }}">وبلاگ</a>
                     </li>
 
-                    <li class="nav-item"><a href="#" class="nav-link">صفحات <i class="flaticon-down-chevron"></i></a>
-                        <ul class="dropdown-menu">
-                            <li class="nav-item"><a href="#" class="nav-link">تیم ما</a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item"><a href="team-1.html" class="nav-link">تیم ما 1</a></li>
-
-                                    <li class="nav-item"><a href="team-2.html" class="nav-link">تیم ما 2</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="nav-item"><a href="#" class="nav-link">فروشگاه</a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item"><a href="shop.html" class="nav-link">فروشگاه</a></li>
-
-                                    <li class="nav-item"><a href="single-product.html" class="nav-link">فروشگاه
-                                            جداگانه</a></li>
-
-                                    <li class="nav-item"><a href="cart.html" class="nav-link">سبد خرید</a></li>
-
-                                    <li class="nav-item"><a href="checkout.html" class="nav-link">بررسی</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="nav-item"><a href="error-404.html" class="nav-link">خطای 404</a></li>
-
-                            <li class="nav-item"><a href="faq.html" class="nav-link">سوالات متداول</a></li>
-                        </ul>
+                    <li class="nav-item"><a href="{{route('about-us')}}"
+                                            class="nav-link {{ request()->routeIs('about-us') ? 'active' : '' }}">درباره
+                            ما</a>
                     </li>
 
-                    <li class="nav-item"><a href="#" class="nav-link">وبلاگ <i class="flaticon-down-chevron"></i></a>
-                        <ul class="dropdown-menu">
-                            <li class="nav-item"><a href="blog-1.html" class="nav-link">وبلاگ شبکه ای</a></li>
-
-                            <li class="nav-item"><a href="blog-2.html" class="nav-link">وبلاگ سایدبار</a></li>
-
-                            <li class="nav-item"><a href="single-blog.html" class="nav-link">وبلاگ جداگانه</a></li>
-                        </ul>
+                    <li class="nav-item"><a href="{{route('contact-us')}}"
+                                            class="nav-link {{ request()->routeIs('contact-us') ? 'active' : '' }}">تماس
+                            با ما</a>
                     </li>
 
-                    <li class="nav-item"><a href="contact.html" class="nav-link">تماس با ما</a></li>
+                    <li class="nav-item"><a href="{{route('faq')}}"
+                                            class="nav-link {{ request()->routeIs('faq') ? 'active' : '' }}">سوالات
+                            متداول</a>
+                    </li>
+
+                    <li class="nav-item"><a href="{{route('team')}}"
+                                            class="nav-link {{ request()->routeIs('team') ? 'active' : '' }}">تیم ما</a>
+                    </li>
+
                 </ul>
 
                 <div class="others-options">
-                    <a href="cart.html" class="cart-btn"><i class="flaticon-bag"></i></a>
 
                     <div class="option-item"><i class="search-btn flaticon-search"></i>
                         <i class="close-btn fas fa-times"></i>
 
                         <div class="search-overlay search-popup">
                             <div class='search-box'>
-                                <form class="search-form">
-                                    <input class="search-input" name="search" placeholder="جستجو" type="text">
+                                <form class="search-form" method="get" action="{{route('projects.search')}}">
+                                    <input value="{{request()->input('search')}}"
+                                           onkeyup="this.value=removeSpaces(this.value)" class="search-input"
+                                           name="search" placeholder="جستجو" type="search">
 
                                     <button class="search-button" type="submit"><i class="fas fa-search"></i></button>
                                 </form>
@@ -186,66 +165,9 @@
                         </div>
                     </div>
 
-                    <div class="burger-menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
                 </div>
+
             </div>
         </nav>
     </div>
 </div>
-<!-- End Navbar Area -->
-
-<!-- Sidebar Modal -->
-<div class="sidebar-modal">
-    <div class="sidebar-modal-inner">
-        <div class="sidebar-about-area">
-            <div class="title">
-                <h2>درباره ما</h2>
-                <p>لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40 سال استاندارد صنعت بوده
-                    است. لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40 سال استاندارد
-                    صنعت بوده است.</p>
-            </div>
-        </div>
-
-        <div class="sidebar-instagram-feed">
-            <h2>اینستاگرام</h2>
-
-            <ul>
-                <li><a href="#"><img src="assets/frontend/images/services-img1.jpg" alt="image"></a></li>
-                <li><a href="#"><img src="assets/frontend/images/services-img2.jpg" alt="image"></a></li>
-                <li><a href="#"><img src="assets/frontend/images/services-img3.jpg" alt="image"></a></li>
-                <li><a href="#"><img src="assets/frontend/images/services-img4.jpg" alt="image"></a></li>
-                <li><a href="#"><img src="assets/frontend/images/services-img1.jpg" alt="image"></a></li>
-                <li><a href="#"><img src="assets/frontend/images/services-img2.jpg" alt="image"></a></li>
-                <li><a href="#"><img src="assets/frontend/images/services-img3.jpg" alt="image"></a></li>
-                <li><a href="#"><img src="assets/frontend/images/services-img4.jpg" alt="image"></a></li>
-            </ul>
-        </div>
-
-        <div class="sidebar-contact-area">
-            <div class="contact-info">
-                <div class="contact-info-content">
-                    <h2>
-                        <a href="tel:+0881306298615">+088 130 629 8615</a>
-                        <span>یا</span>
-                        <a href="mailto:zovio@site.com">zovio@site.com</a>
-                    </h2>
-
-                    <ul class="social">
-                        <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#" target="_blank"><i class="fab fa-youtube"></i></a></li>
-                        <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-                        <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <span class="close-btn sidebar-modal-close-btn"><i class="fas fa-times"></i></span>
-    </div>
-</div>
-<!-- End Sidebar Modal -->

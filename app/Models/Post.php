@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Lang;
+use Vinkla\Hashids\Facades\Hashids;
 
 class Post extends Model
 {
@@ -56,5 +57,10 @@ class Post extends Model
         } elseif ($this->status == Post::INACTIVE) {
             return '<td class="alert alert-danger">' . Lang::get(self::INACTIVE) . '</td>';
         }
+    }
+
+    public function path()
+    {
+        return route('blog.post', Hashids::encode($this->id) . '-' . $this->slug);
     }
 }

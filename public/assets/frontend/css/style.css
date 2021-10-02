@@ -2616,22 +2616,6 @@ How We Work Area CSS
     transition: 0.5s;
 }
 
-.how-we-work-process .process-list .single-process .content.bg-1 {
-    background-image: url(../../frontend/images/services-img1.jpg);
-}
-
-.how-we-work-process .process-list .single-process .content.bg-2 {
-    background-image: url(../../frontend/images/services-img2.jpg);
-}
-
-.how-we-work-process .process-list .single-process .content.bg-3 {
-    background-image: url(../../frontend/images/services-img3.jpg);
-}
-
-.how-we-work-process .process-list .single-process .content.bg-4 {
-    background-image: url(../../frontend/images/services-img4.jpg);
-}
-
 .how-we-work-process .process-list .single-process .content:hover::before {
     opacity: 0;
     visibility: hidden;
@@ -6822,3 +6806,13 @@ Go Top CSS
 }
 
 /*# sourceMappingURL=style.css.map */
+
+.help-block{
+    font-size: 80%;
+    color: #dc3545;
+    float: right;
+}
+
+.invalid-feedback {
+    text-align: right;
+}

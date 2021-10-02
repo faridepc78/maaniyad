@@ -8,6 +8,7 @@ label.error {
     font-size: 14px;
     display: block;
     margin-top: 5px;
+    text-align: right;
 }
 
 input.error, textarea.error {

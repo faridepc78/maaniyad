@@ -1,11 +1,13 @@
 .toast-title {
     font-weight: 700;
     font-size: 14px;
+    text-align: right;
 }
 
 .toast-message {
     -ms-word-wrap: break-word;
-    word-wrap: break-word
+    word-wrap: break-word;
+    text-align: right;
 }
 
 .toast-message a, .toast-message label {

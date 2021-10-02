@@ -85,6 +85,11 @@
 <script type="text/javascript" src="{{asset('assets/frontend/js/form-validator.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/frontend/js/contact-form-script.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/frontend/js/main.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/common/js/public.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/common/plugins/validation/js/jquery.validate.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/common/plugins/validation/js/methods.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/common/plugins/toast/js/toast.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/common/plugins/toast/js/toast-options.js')}}"></script>
 <script type="text/javascript">@include('site.layout.feedbacks')</script>
 
 @yield('site_js')

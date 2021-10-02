@@ -79,4 +79,57 @@ class PostRepository
                 ->get();
         }
     }
+
+    public function getAllByPaginate()
+    {
+        return Post::query()
+            ->where('status', '=', Post::ACTIVE)
+            ->latest()
+            ->paginate(8);
+    }
+
+    public function findByCategoryId($category_id)
+    {
+        $data =
+            [
+                ['status', '=', Post::ACTIVE],
+                ['category_id', '=', $category_id]
+            ];
+        return Post::query()
+            ->where($data)
+            ->latest()
+            ->paginate(10);
+    }
+
+    public function related($category_id, $post_id)
+    {
+        $data =
+            [
+                ['status', '=', Post::ACTIVE],
+                ['category_id', '=', $category_id]
+            ];
+        return Post::query()
+            ->where($data)
+            ->whereNotIn('id', [$post_id])
+            ->latest()
+            ->limit(5)
+            ->get();
+    }
+
+    public function search($keyword)
+    {
+        return Post::query()
+            ->where('name', 'like', '%' . $keyword . '%')
+            ->where('status', '=', Post::ACTIVE)
+            ->paginate(10);
+    }
+
+    public function random()
+    {
+        return Post::query()
+            ->where('status', '=', Post::ACTIVE)
+            ->inRandomOrder()
+            ->limit(3)
+            ->get();
+    }
 }
