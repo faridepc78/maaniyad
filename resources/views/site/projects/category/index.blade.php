@@ -4,8 +4,6 @@
 
 @include('site.layout.header')
 
-@include('site.layout.header')
-
 <div class="page-title-area page-title-bg2 jarallax" data-jarallax='{"speed": 0.3}'>
     <div class="d-table">
         <div class="d-table-cell">

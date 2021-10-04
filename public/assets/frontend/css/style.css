@@ -2727,22 +2727,6 @@ How We Work Area CSS
     transition: 0.5s;
 }
 
-.single-process-box.bg-1 {
-    background-image: url(../../frontend/images/services-img1.jpg);
-}
-
-.single-process-box.bg-2 {
-    background-image: url(../../frontend/images/services-img2.jpg);
-}
-
-.single-process-box.bg-3 {
-    background-image: url(../../frontend/images/services-img3.jpg);
-}
-
-.single-process-box.bg-4 {
-    background-image: url(../../frontend/images/services-img4.jpg);
-}
-
 .single-process-box:hover::before {
     opacity: 0;
     visibility: hidden;
@@ -3458,7 +3442,6 @@ Work With Us Area CSS
 .work-with-us-area {
     position: relative;
     z-index: 1;
-    background-image: url(../../frontend/images/main-banner1.jpg);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -4490,17 +4473,7 @@ Sidebar Widget Area CSS
     background-position: center center !important;
 }
 
-.widget-area .widget_zovio_posts_thumb .item .thumb .fullimage.bg1 {
-    background-image: url(../../frontend/images/blog-img1.jpg);
-}
 
-.widget-area .widget_zovio_posts_thumb .item .thumb .fullimage.bg2 {
-    background-image: url(../../frontend/images/blog-img2.jpg);
-}
-
-.widget-area .widget_zovio_posts_thumb .item .thumb .fullimage.bg3 {
-    background-image: url(../../frontend/images/blog-img3.jpg);
-}
 
 .widget-area .widget_zovio_posts_thumb .item .info {
     overflow: hidden;

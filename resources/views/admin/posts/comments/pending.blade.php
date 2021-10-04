@@ -49,6 +49,8 @@
                                 </form>
                             </div>
 
+                            <p style="cursor: auto" class="btn btn-warning">تعداد نظرات در حال برسی : {{$pending}}</p>
+
                         </div>
 
                         <div class="card-body table-responsive p-0">

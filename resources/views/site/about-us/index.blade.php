@@ -22,13 +22,7 @@
         <div class="row align-items-center">
             <div class="col-lg-7 col-md-12">
                 <div class="about-text">
-                    <span class="sub-title">ما چه کسی هستیم</span>
-                    <h2>ما استودیوی طراح داخلی هستیم</h2>
-                    <p>لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40 سال استاندارد صنعت
-                        بوده است.</p>
-                    <div class="quote">
-                        “طراحی داخلی بهترین استفاده را از فضای موجود می کند“
-                    </div>
+                    <p>{!! $settings['about_page'] !!}</p>
                 </div>
             </div>
 

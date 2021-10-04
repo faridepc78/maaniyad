@@ -9,7 +9,7 @@
         <div class="d-table-cell">
             <div class="container">
                 <div class="page-title-content">
-                    <h2>پروژه</h2>
+                    <h2>پروژه ها</h2>
                     <p>آخرین پروژه ها</p>
                 </div>
             </div>

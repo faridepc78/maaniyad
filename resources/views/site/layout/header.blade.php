@@ -4,9 +4,9 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="description"
-          content="مانیاد">
+          content="مانیاد,معماری,maaniyad">
     <meta name="keywords"
-          content="مانیاد">
+          content="مانیاد,معماری,maaniyad">
     <meta name="author" content="info@aftabeshafa.ir">
     <meta http-equiv="content-language" content="Fa">
     <meta name="robots" content="index,follow"/>
@@ -74,7 +74,7 @@
             <div class="zovio-responsive-menu">
                 <div class="logo">
                     <a href="{{route('home')}}">
-                        <img src="{{asset('assets/frontend/images/logo.png')}}" alt="logo">
+                        <img style="width: 50px;height: 50px" src="{{asset('assets/common/images/maaniyad.png')}}" alt="logo">
                     </a>
                 </div>
             </div>
@@ -84,7 +84,7 @@
     <div class="zovio-nav">
         <nav class="navbar navbar-expand-md navbar-light">
             <a class="navbar-brand" href="{{route('home')}}">
-                <img src="{{asset('assets/frontend/images/logo.png')}}" alt="logo">
+                <img style="width: 50px;height: 50px" src="{{asset('assets/common/images/maaniyad.png')}}" alt="logo">
             </a>
 
             <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
@@ -159,8 +159,8 @@
 
                         <div class="search-overlay search-popup">
                             <div class='search-box'>
-                                <form class="search-form" method="get" action="{{route('projects.search')}}">
-                                    <input value="{{request()->input('search')}}"
+                                <form id="search_form" class="search-form" method="get" action="{{route('projects.search')}}">
+                                    <input id="search" value="{{request()->input('search')}}"
                                            onkeyup="this.value=removeSpaces(this.value)" class="search-input"
                                            name="search" placeholder="جستجو" type="search">
 

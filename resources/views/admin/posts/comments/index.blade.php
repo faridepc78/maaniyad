@@ -49,6 +49,16 @@
                                 </form>
                             </div>
 
+                            <p style="cursor: auto" class="btn btn-success">تعداد نظرات فعال : {{$active}}</p>
+                            <p style="cursor: auto" class="btn btn-danger">تعداد نظرات در حال غیرفعال : {{$inactive}}</p>
+
+                            <br>
+
+                            <p style="cursor: auto" class="btn btn-success">تعداد نظرات با جواب : {{$with_answer}}</p>
+                            <p style="cursor: auto" class="btn btn-danger">تعداد نظرات بی جواب : {{$without_answer}}</p>
+
+                            <br>
+
                             <a href="{{route('posts.comments.index',['answer=yes'])}}"
                                class="btn btn-success">جواب داده شده</a>
 

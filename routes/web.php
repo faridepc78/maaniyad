@@ -55,6 +55,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'my_auth', 'throttle:
     Route::get('contacts', 'ContactController@index')->name('contacts.index');
     Route::get('contacts/single/{id}', 'ContactController@single')->name('contacts.single');
 
+    Route::get('settings', 'SettingController@index')->name('settings.index');
+    Route::post('settings', 'SettingController@do')->name('settings.store');
+    Route::patch('settings', 'SettingController@do')->name('settings.update');
+
 });
 
 /*END ADMIN*/

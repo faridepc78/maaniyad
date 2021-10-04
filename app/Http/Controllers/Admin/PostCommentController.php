@@ -5,28 +5,40 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PostComment\ManagementPostCommentRequest;
 use App\Repositories\PostCommentRepository;
+use App\Repositories\StatisticsRepository;
 use Exception;
 use Illuminate\Http\Request;
 
 class PostCommentController extends Controller
 {
     private $postCommentRepository;
+    private $statisticsRepository;
 
-    public function __construct(PostCommentRepository $postCommentRepository)
+    public function __construct(PostCommentRepository $postCommentRepository,
+                                StatisticsRepository  $statisticsRepository)
     {
         $this->postCommentRepository = $postCommentRepository;
+        $this->statisticsRepository = $statisticsRepository;
     }
 
     public function pending()
     {
         $comments = $this->postCommentRepository->pending();
-        return view('admin.posts.comments.pending', compact('comments'));
+        $pending = $this->statisticsRepository->getPendingPostCommentsCount();
+        return view('admin.posts.comments.pending', compact('comments', 'pending'));
     }
 
     public function index()
     {
         $comments = $this->postCommentRepository->paginateByFilters();
-        return view('admin.posts.comments.index', compact('comments'));
+        $active = $this->statisticsRepository->getActivePostCommentsCount();
+        $inactive = $this->statisticsRepository->getInActivePostCommentsCount();
+        $with_answer = $this->statisticsRepository->getPostCommentsCountWithAnswer();
+        $without_answer = $this->statisticsRepository->getPostCommentsCountWithOutAnswer();
+        return view('admin.posts.comments.index',
+            compact('comments',
+                'active', 'inactive',
+                'with_answer', 'without_answer'));
     }
 
     public function single($id)
