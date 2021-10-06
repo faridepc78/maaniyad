@@ -98,9 +98,9 @@
     </div>
 
     <div class="copyright-area">
-        <div class="container">
-            <p><i class="flaticon-copyright"></i> 1398 تمام حقوق قالب محفوظ است. طراحی و توسعه توسط <a
-                    href="https://www.rtl-theme.com/author/barat/?aff=barat" target="_blank">Barat Hadian</a></p>
+        <div class="container text-center">
+            <p><i class="flaticon-copyright"></i> 1400 تمام حقوق مانیاد محفوظ است. طراحی و توسعه توسط <a
+                    href="https://maaniyad.com" target="_blank">MAANIYAD</a></p>
         </div>
     </div>
 </footer>
