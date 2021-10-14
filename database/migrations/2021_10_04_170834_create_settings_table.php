@@ -19,21 +19,14 @@ class CreateSettingsTable extends Migration
             $table->unsignedBigInteger('customers_count');
             $table->unsignedBigInteger('team_count');
             $table->unsignedBigInteger('experience_count');
-            $table->text('index_about');
-            $table->text('index_item1');
-            $table->text('index_item2');
-            $table->text('index_item3');
             $table->string('instagram')->nullable();
             $table->string('telegram')->nullable();
-            $table->string('facebook')->nullable();
-            $table->string('twitter')->nullable();
-            $table->string('linkedin')->nullable();
+            $table->string('whatsapp')->nullable();
             $table->string('email')->nullable();
             $table->text('address')->nullable();
-            $table->string('phone')->nullable();
-            $table->string('mobile')->nullable();
+            $table->text('phone')->nullable();
+            $table->text('mobile')->nullable();
             $table->longText('about_page');
-            $table->longText('services_page');
             $table->timestamps();
         });
     }

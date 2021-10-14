@@ -19,8 +19,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'my_auth', 'throttle:
 
     Route::resource('sliders', 'SliderController')->except('show');
 
-    Route::resource('projects_categories', 'ProjectCategoryController')->except('show');
-
     Route::resource('projects', 'ProjectController')->except('show');
 
     Route::get('projects/gallery/{project_id}', 'ProjectGalleryController@index')->name('projects.gallery.index');
@@ -42,15 +40,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'my_auth', 'throttle:
     Route::delete('posts/comments/destroy/{id}','PostCommentController@destroy')->name('posts.comments.destroy');
     Route::patch('posts/comments/update_status/{id}','PostCommentController@update_status')->name('posts.comments.update_status');
 
-    Route::resource('team', 'TeamController')->except('show');
+    Route::resource('products_categories', 'ProductCategoryController')->except('show');
+
+    Route::resource('products', 'ProductController')->except('show');
 
     Route::resource('brands', 'BrandController')->except('show');
 
-    Route::resource('services', 'ServiceController')->except('show');
-
     Route::resource('feedbacks', 'FeedbackController')->except('show');
-
-    Route::resource('faqs', 'FaqController')->except('show');
 
     Route::get('contacts', 'ContactController@index')->name('contacts.index');
     Route::get('contacts/single/{id}', 'ContactController@single')->name('contacts.single');
@@ -90,15 +86,7 @@ Route::group(['prefix' => '/', 'middleware' => ['web', 'throttle:50,1'],
     Route::get('contact-us', 'MainController@contact_us')->name('contact-us');
     Route::post('contact-us', 'MainController@contact_us_send')->name('contact-us-send');
 
-    Route::get('services', 'MainController@services')->name('services');
-    Route::get('services/{slug}', 'MainController@service')->name('service');
-
-    Route::get('team', 'MainController@team')->name('team');
-
-    Route::get('faq', 'MainController@faq')->name('faq');
-
     Route::get('projects', 'MainController@projects')->name('projects');
-    Route::get('projects/category/{slug}', 'MainController@projects_category')->name('projects.category');
     Route::get('project/{slug}', 'MainController@project')->name('project');
     Route::get('projects/search', 'MainController@search')->name('projects.search');
 

@@ -28,7 +28,6 @@
                         <div style="background-image: url('{{$value->image->original}}')" class="single-projects-box">
                             <div class="projects-content">
                                 <h3><a href="{{$value->path()}}">{{$value->name}}</a></h3>
-                                <span class="category">{{$value->category->name}}</span>
                             </div>
                         </div>
                     </div>

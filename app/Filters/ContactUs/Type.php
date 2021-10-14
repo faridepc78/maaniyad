@@ -13,10 +13,12 @@ class Type extends Filter
     {
         $keyword = request($this->filterName());
 
-        if ($keyword == 'read') {
+        if ($keyword == ContactUs::READ) {
             return $builder->where('type', '=', ContactUs::READ);
-        } elseif ($keyword == 'unread') {
+        } elseif ($keyword == ContactUs::UNREAD) {
             return $builder->where('type', '=', ContactUs::UNREAD);
+        } else {
+            return $builder;
         }
     }
 }

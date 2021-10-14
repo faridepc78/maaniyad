@@ -120,68 +120,8 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="index_about">متن درباره ما صفحه اصلی *</label>
-                                    <textarea onkeyup="this.value=removeSpaces(this.value)" placeholder="لطفا متن درباره ما صفحه اصلی را وارد کنید" rows="5" style="resize: vertical"
-                                              class="form-control @error('index_about') is-invalid @enderror"
-                                              id="index_about"
-                                              name="index_about" autocomplete="index_about"
-                                              autofocus>{{ old('index_about',$setting['index_about']) }}</textarea>
-
-                                    @error('index_about')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="index_item1">آیتم اول صفحه اصلی *</label>
-                                    <textarea onkeyup="this.value=removeSpaces(this.value)" placeholder="لطفا آیتم اول صفحه اصلی را وارد کنید" rows="5" style="resize: vertical"
-                                              class="form-control @error('index_item1') is-invalid @enderror"
-                                              id="index_item1"
-                                              name="index_item1" autocomplete="index_item1"
-                                              autofocus>{{ old('index_item1',$setting['index_item1']) }}</textarea>
-
-                                    @error('index_item1')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="index_item2">آیتم دوم صفحه اصلی *</label>
-                                    <textarea onkeyup="this.value=removeSpaces(this.value)" placeholder="لطفا آیتم دوم صفحه اصلی را وارد کنید" rows="5" style="resize: vertical"
-                                              class="form-control @error('index_item2') is-invalid @enderror"
-                                              id="index_item2"
-                                              name="index_item2" autocomplete="index_item2"
-                                              autofocus>{{ old('index_item2',$setting['index_item2']) }}</textarea>
-
-                                    @error('index_item2')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="index_item3">آیتم سوم صفحه اصلی *</label>
-                                    <textarea onkeyup="this.value=removeSpaces(this.value)" placeholder="لطفا آیتم سوم صفحه اصلی را وارد کنید" rows="5" style="resize: vertical"
-                                              class="form-control @error('index_item3') is-invalid @enderror"
-                                              id="index_item3"
-                                              name="index_item3" autocomplete="index_item3"
-                                              autofocus>{{ old('index_item3',$setting['index_item3']) }}</textarea>
-
-                                    @error('index_item3')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="instagram">لینک اینستاگرام</label>
-                                    <input placeholder="در صورت تمایل لینک اینستاگرام را وارد کنید"
+                                    <label for="instagram">اینستاگرام</label>
+                                    <input placeholder="در صورت تمایل اینستاگرام را وارد کنید"
                                            onkeyup="this.value=removeSpaces(this.value)" type="text"
                                            class="form-control @error('instagram') is-invalid @enderror"
                                            value="{{ old('instagram',$setting['instagram']) }}" id="instagram"
@@ -196,8 +136,8 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="telegram">لینک تلگرام</label>
-                                    <input placeholder="در صورت تمایل لینک تلگرام را وارد کنید"
+                                    <label for="telegram">تلگرام</label>
+                                    <input placeholder="در صورت تمایل تلگرام را وارد کنید"
                                            onkeyup="this.value=removeSpaces(this.value)" type="text"
                                            class="form-control @error('telegram') is-invalid @enderror"
                                            value="{{ old('telegram',$setting['telegram']) }}" id="telegram"
@@ -212,47 +152,15 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="facebook">لینک فیسبوک</label>
-                                    <input placeholder="در صورت تمایل لینک فیسبوک را وارد کنید"
+                                    <label for="whatsapp">واتس اپ</label>
+                                    <input placeholder="در صورت تمایل واتس اپ را وارد کنید"
                                            onkeyup="this.value=removeSpaces(this.value)" type="text"
-                                           class="form-control @error('facebook') is-invalid @enderror"
-                                           value="{{ old('facebook',$setting['facebook']) }}" id="facebook"
-                                           name="facebook"
-                                           autocomplete="facebook" autofocus>
+                                           class="form-control @error('whatsapp') is-invalid @enderror"
+                                           value="{{ old('whatsapp',$setting['whatsapp']) }}" id="whatsapp"
+                                           name="whatsapp"
+                                           autocomplete="whatsapp" autofocus>
 
-                                    @error('facebook')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="twitter">لینک تویتر</label>
-                                    <input placeholder="در صورت تمایل لینک تویتر را وارد کنید"
-                                           onkeyup="this.value=removeSpaces(this.value)" type="text"
-                                           class="form-control @error('twitter') is-invalid @enderror"
-                                           value="{{ old('twitter',$setting['twitter']) }}" id="twitter"
-                                           name="twitter"
-                                           autocomplete="twitter" autofocus>
-
-                                    @error('twitter')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="linkedin">لینک لینکدین</label>
-                                    <input placeholder="در صورت تمایل لینک لینکدین را وارد کنید"
-                                           onkeyup="this.value=removeSpaces(this.value)" type="text"
-                                           class="form-control @error('linkedin') is-invalid @enderror"
-                                           value="{{ old('linkedin',$setting['linkedin']) }}" id="linkedin"
-                                           name="linkedin"
-                                           autocomplete="linkedin" autofocus>
-
-                                    @error('linkedin')
+                                    @error('whatsapp')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -277,7 +185,8 @@
 
                                 <div class="form-group">
                                     <label for="address">آدرس</label>
-                                    <textarea onkeyup="this.value=removeSpaces(this.value)" placeholder="در صورت تمایل آدرس را وارد کنید" rows="5"
+                                    <textarea onkeyup="this.value=removeSpaces(this.value)"
+                                              placeholder="در صورت تمایل آدرس را وارد کنید" rows="5"
                                               style="resize: vertical"
                                               class="form-control @error('address') is-invalid @enderror"
                                               id="address"
@@ -293,12 +202,13 @@
 
                                 <div class="form-group">
                                     <label for="phone">تلفن ثابت</label>
-                                    <input placeholder="در صورت تمایل تلفن ثابت را وارد کنید"
-                                           onkeyup="this.value=removeSpaces(this.value)" type="text"
-                                           class="form-control @error('phone') is-invalid @enderror"
-                                           value="{{ old('phone',$setting['phone']) }}" id="phone"
-                                           name="phone"
-                                           autocomplete="phone" autofocus>
+                                    <textarea style="resize: vertical" rows="5" placeholder="در صورت تمایل تلفن ثابت را وارد کنید"
+                                              onkeyup="this.value=removeSpaces(this.value)" type="text"
+                                              class="form-control @error('phone') is-invalid @enderror"
+                                              id="phone"
+                                              name="phone"
+                                              autocomplete="phone"
+                                              autofocus>{{ old('phone',$setting['phone']) }}</textarea>
 
                                     @error('phone')
                                     <span class="invalid-feedback" role="alert">
@@ -309,12 +219,13 @@
 
                                 <div class="form-group">
                                     <label for="mobile">تلفن همراه</label>
-                                    <input placeholder="در صورت تمایل تلفن همراه را وارد کنید"
-                                           onkeyup="this.value=removeSpaces(this.value)" type="text"
-                                           class="form-control @error('mobile') is-invalid @enderror"
-                                           value="{{ old('mobile',$setting['mobile']) }}" id="mobile"
-                                           name="mobile"
-                                           autocomplete="mobile" autofocus>
+                                    <textarea style="resize: vertical" rows="5" placeholder="در صورت تمایل تلفن همراه را وارد کنید"
+                                              onkeyup="this.value=removeSpaces(this.value)" type="text"
+                                              class="form-control @error('mobile') is-invalid @enderror"
+                                              id="mobile"
+                                              name="mobile"
+                                              autocomplete="mobile"
+                                              autofocus>{{ old('mobile',$setting['mobile']) }}</textarea>
 
                                     @error('mobile')
                                     <span class="invalid-feedback" role="alert">
@@ -331,20 +242,6 @@
                                               autofocus>{{ old('about_page',$setting['about_page']) }}</textarea>
 
                                     @error('about_page')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="services_page">متن صفحه خدمات ما *</label>
-                                    <textarea class="form-control ckeditor @error('services_page') is-invalid @enderror"
-                                              id="services_page"
-                                              name="services_page" autocomplete="services_page"
-                                              autofocus>{{ old('services_page',$setting['services_page']) }}</textarea>
-
-                                    @error('services_page')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -383,9 +280,6 @@
         var about_page_field = 'about_page';
         var about_page_error = 'لطفا متن صفحه درباره ما را وارد کنید';
 
-        var services_page_field = 'services_page';
-        var services_page_error = 'لطفا متن صفحه خدمات ما را وارد کنید';
-
         $('#createOrUpdate_settings_form').validate({
 
             rules: {
@@ -409,52 +303,8 @@
                     number: true
                 },
 
-                index_about: {
-                    required: true
-                },
-
-                index_item1: {
-                    required: true
-                },
-
-                index_item2: {
-                    required: true
-                },
-
-                index_item3: {
-                    required: true
-                },
-
-                instagram: {
-                    checkUrl: true
-                },
-
-                telegram: {
-                    checkUrl: true
-                },
-
-                facebook: {
-                    checkUrl: true
-                },
-
-                twitter: {
-                    checkUrl: true
-                },
-
-                linkedin: {
-                    checkUrl: true
-                },
-
                 email: {
                     email: true
-                },
-
-                phone: {
-                    number: true
-                },
-
-                mobile: {
-                    checkMobile: true
                 }
             },
 
@@ -479,57 +329,12 @@
                     number: "لطفا تعداد سال های تجربه را صحیح وارد کنید",
                 },
 
-                index_about: {
-                    required: "لطفا متن درباره ما صفحه اصلی را وارد کنید"
-                },
-
-                index_item1: {
-                    required: "لطفا آیتم اول صفحه اصلی را وارد کنید"
-                },
-
-                index_item2: {
-                    required: "لطفا آیتم دوم صفحه اصلی را وارد کنید"
-                },
-
-                index_item3: {
-                    required: "لطفا آیتم سوم صفحه اصلی را وارد کنید"
-                },
-
-                instagram: {
-                    checkUrl: "لطفا لینک اینستاگرام را صحیح وارد کنید"
-                },
-
-                telegram: {
-                    checkUrl: "لطفا لینک تلگرام را صحیح وارد کنید"
-                },
-
-                facebook: {
-                    checkUrl: "لطفا لینک فیسبوک را صحیح وارد کنید"
-                },
-
-                twitter: {
-                    checkUrl: "لطفا لینک تویتر را صحیح وارد کنید"
-                },
-
-                linkedin: {
-                    checkUrl: "لطفا لینک لینکدین را صحیح وارد کنید"
-                },
-
                 email: {
                     email: "لطفا ایمیل را صحیح وارد کنید"
-                },
-
-                phone: {
-                    number: "لطفا تلفن ثابت را صحیح وارد کنید"
-                },
-
-                mobile: {
-                    checkMobile: "لطفا تلفن همراه را صحیح وارد کنید"
                 }
             },
             submitHandler: function (form) {
-                if (validateCkeditor(about_page_field, about_page_error) === true
-                    && validateCkeditor(services_page_field, services_page_error) === true) {
+                if (validateCkeditor(about_page_field, about_page_error) === true) {
                     form.submit();
                 }
             }

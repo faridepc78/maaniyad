@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
 
     <a href="{{route('dashboard')}}" class="brand-link">
-        <img src="{{asset('assets/common/images/maaniyad.png')}}" alt="Logo"
+        <img src="{{asset('assets/common/images/maaniyad.jpeg')}}" alt="Logo"
              class="brand-image img-circle elevation-3"
              style="opacity: .8">
         <span class="brand-text font-weight-light"
@@ -94,18 +94,12 @@
                     <li class="nav-item has-treeview {{ request()->routeIs(['projects.index',
 'projects.create',
 'projects.edit',
-'projects_categories.index',
-'projects_categories.create',
-'projects_categories.edit',
 'projects.gallery.index']) ? 'menu-open' : '' }}">
 
                         <a href="#"
                            class="nav-link {{ request()->routeIs(['projects.index',
 'projects.create',
 'projects.edit',
-'projects_categories.index',
-'projects_categories.create',
-'projects_categories.edit',
 'projects.gallery.index']) ? 'active' : '' }}">
                             <i class="nav-icon fa fa-tasks"></i>
                             <p>
@@ -115,22 +109,6 @@
                         </a>
 
                         <ul class="nav nav-treeview">
-
-                            <li class="nav-item">
-                                <a href="{{route('projects_categories.index')}}"
-                                   class="nav-link {{ request()->routeIs(['projects_categories.index']) ? 'active' : '' }}">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>مدیریت دسته بندی ها</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="{{route('projects_categories.create')}}"
-                                   class="nav-link {{ request()->routeIs(['projects_categories.create']) ? 'active' : '' }}">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>ایجاد دسته بندی ها</p>
-                                </a>
-                            </li>
 
                             <li class="nav-item">
                                 <a href="{{ route('projects.index') }}"
@@ -233,17 +211,23 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item has-treeview {{ request()->routeIs(['team.index',
-'team.create',
-'team.edit']) ? 'menu-open' : '' }}">
+                    <li class="nav-item has-treeview {{ request()->routeIs(['products.index',
+'products.create',
+'products.edit',
+'products_categories.index',
+'products_categories.create',
+'products_categories.edit']) ? 'menu-open' : '' }}">
 
                         <a href="#"
-                           class="nav-link {{ request()->routeIs(['team.index',
-'team.create',
-'team.edit']) ? 'active' : '' }}">
-                            <i class="nav-icon fa fa-users"></i>
+                           class="nav-link {{ request()->routeIs(['products.index',
+'products.create',
+'products.edit',
+'products_categories.index',
+'products_categories.create',
+'products_categories.edit']) ? 'active' : '' }}">
+                            <i class="nav-icon fa fa-product-hunt"></i>
                             <p>
-                                تیم
+                                محصولات
                                 <i class="fa fa-angle-left right"></i>
                             </p>
                         </a>
@@ -251,18 +235,34 @@
                         <ul class="nav nav-treeview">
 
                             <li class="nav-item">
-                                <a href="{{ route('team.index') }}"
-                                   class="nav-link {{ request()->routeIs(['team.index']) ? 'active' : '' }}">
+                                <a href="{{route('products_categories.index')}}"
+                                   class="nav-link {{ request()->routeIs(['products_categories.index']) ? 'active' : '' }}">
                                     <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>مدیریت اعضای تیم</p>
+                                    <p>مدیریت دسته بندی ها</p>
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a href="{{ route('team.create') }}"
-                                   class="nav-link {{ request()->routeIs('team.create') ? 'active' : '' }}">
+                                <a href="{{route('products_categories.create')}}"
+                                   class="nav-link {{ request()->routeIs(['products_categories.create']) ? 'active' : '' }}">
                                     <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>ایجاد اعضای تیم</p>
+                                    <p>ایجاد دسته بندی ها</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ route('products.index') }}"
+                                   class="nav-link {{ request()->routeIs(['products.index']) ? 'active' : '' }}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>مدیریت محصولات</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ route('products.create') }}"
+                                   class="nav-link {{ request()->routeIs('products.create') ? 'active' : '' }}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>ایجاد محصولات</p>
                                 </a>
                             </li>
 
@@ -299,78 +299,6 @@
                                    class="nav-link {{ request()->routeIs('brands.create') ? 'active' : '' }}">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>ایجاد برند ها</p>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </li>
-
-                    <li class="nav-item has-treeview {{ request()->routeIs(['services.index',
-'services.create',
-'services.edit']) ? 'menu-open' : '' }}">
-
-                        <a href="#"
-                           class="nav-link {{ request()->routeIs(['services.index',
-'services.create',
-'services.edit']) ? 'active' : '' }}">
-                            <i class="nav-icon fa fa-wrench"></i>
-                            <p>
-                                خدمات
-                                <i class="fa fa-angle-left right"></i>
-                            </p>
-                        </a>
-
-                        <ul class="nav nav-treeview">
-
-                            <li class="nav-item">
-                                <a href="{{ route('services.index') }}"
-                                   class="nav-link {{ request()->routeIs(['services.index']) ? 'active' : '' }}">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>مدیریت خدمات</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="{{ route('services.create') }}"
-                                   class="nav-link {{ request()->routeIs('services.create') ? 'active' : '' }}">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>ایجاد خدمات</p>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </li>
-
-                    <li class="nav-item has-treeview {{ request()->routeIs(['faqs.index',
-'faqs.create',
-'faqs.edit']) ? 'menu-open' : '' }}">
-
-                        <a href="#"
-                           class="nav-link {{ request()->routeIs(['faqs.index',
-'faqs.create',
-'faqs.edit']) ? 'active' : '' }}">
-                            <i class="nav-icon fa fa-question"></i>
-                            <p>
-                                سوالات متداول
-                                <i class="fa fa-angle-left right"></i>
-                            </p>
-                        </a>
-
-                        <ul class="nav nav-treeview">
-
-                            <li class="nav-item">
-                                <a href="{{ route('faqs.index') }}"
-                                   class="nav-link {{ request()->routeIs(['faqs.index']) ? 'active' : '' }}">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>مدیریت سوالات متداول</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="{{ route('faqs.create') }}"
-                                   class="nav-link {{ request()->routeIs('faqs.create') ? 'active' : '' }}">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>ایجاد سوالات متداول</p>
                                 </a>
                             </li>
 

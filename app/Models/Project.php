@@ -16,7 +16,6 @@ class Project extends Model
             'customer',
             'text',
             'link',
-            'category_id',
             'image_id'
         ];
 
@@ -26,11 +25,6 @@ class Project extends Model
             'created_at',
             'updated_at'
         ];
-
-    public function category()
-    {
-        return $this->belongsTo(ProjectCategory::class, 'category_id', 'id');
-    }
 
     public function image()
     {

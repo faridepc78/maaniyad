@@ -14,21 +14,14 @@ class SettingRepository
                 'customers_count' => $values['customers_count'],
                 'team_count' => $values['team_count'],
                 'experience_count' => $values['experience_count'],
-                'index_about' => $values['index_about'],
-                'index_item1' => $values['index_item1'],
-                'index_item2' => $values['index_item2'],
-                'index_item3' => $values['index_item3'],
                 'instagram' => $values['instagram'],
                 'telegram' => $values['telegram'],
-                'facebook' => $values['facebook'],
-                'twitter' => $values['twitter'],
-                'linkedin' => $values['linkedin'],
+                'whatsapp' => $values['whatsapp'],
                 'email' => $values['email'],
                 'address' => $values['address'],
                 'phone' => $values['phone'],
                 'mobile' => $values['mobile'],
-                'about_page' => $values['about_page'],
-                'services_page' => $values['services_page']
+                'about_page' => $values['about_page']
             ]);
     }
 
@@ -52,21 +45,14 @@ class SettingRepository
                 'customers_count' => $values['customers_count'],
                 'team_count' => $values['team_count'],
                 'experience_count' => $values['experience_count'],
-                'index_about' => $values['index_about'],
-                'index_item1' => $values['index_item1'],
-                'index_item2' => $values['index_item2'],
-                'index_item3' => $values['index_item3'],
                 'instagram' => $values['instagram'],
                 'telegram' => $values['telegram'],
-                'facebook' => $values['facebook'],
-                'twitter' => $values['twitter'],
-                'linkedin' => $values['linkedin'],
+                'whatsapp' => $values['whatsapp'],
                 'email' => $values['email'],
                 'address' => $values['address'],
                 'phone' => $values['phone'],
                 'mobile' => $values['mobile'],
-                'about_page' => $values['about_page'],
-                'services_page' => $values['services_page']
+                'about_page' => $values['about_page']
             ]);
     }
 }

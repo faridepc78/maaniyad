@@ -13,10 +13,8 @@ class Search extends Filter
         $keyword = request($this->filterName());
 
         if ($keyword != null) {
-            return $builder->where('customer', 'like', '%' . $keyword . '%')
-                ->orWhereHas('category', function ($query) use ($keyword) {
-                    $query->where('name', 'like', '%' . $keyword . '%');
-                });
+            return $builder->where('name', 'like', '%' . $keyword . '%')
+                ->orWhere('customer', 'like', '%' . $keyword . '%');
         } else {
             return $builder;
         }

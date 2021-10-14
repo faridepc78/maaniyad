@@ -63,7 +63,7 @@
                                                value="{{request()->input('search')}}" type="text"
                                                name="search"
                                                class="form-control float-right"
-                                               placeholder="جستجو بر اساس دسته بندی یا مشتری">
+                                               placeholder="جستجو بر اساس نام یا مشتری">
 
                                         <div class="input-group-append">
                                             <button type="submit" class="btn btn-default"><i class="fa fa-search"></i>
@@ -84,7 +84,6 @@
                                     <th>اسلاگ</th>
                                     <th>مشتری</th>
                                     <th>لینک</th>
-                                    <th>دسته بندی</th>
                                     <th>تصویر</th>
                                     <th>تاریخ</th>
                                     <th>گالری</th>
@@ -111,7 +110,6 @@
                                             @else
                                                 <td><i class="fa fa-close text-danger"></i></td>
                                             @endif
-                                            <td>{{$value->category->name}}</td>
                                             <td>
                                                 <img width="50" height="50" src="{{$value->image->original}}" alt="{{$value->image->original}}">
                                             </td>

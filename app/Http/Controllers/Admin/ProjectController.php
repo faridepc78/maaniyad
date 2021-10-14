@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Project\StoreProjectRequest;
 use App\Http\Requests\Admin\Project\UpdateProjectRequest;
-use App\Repositories\ProjectCategoryRepository;
 use App\Repositories\ProjectRepository;
 use App\Services\Media\MediaFileService;
 use Exception;
@@ -13,13 +12,10 @@ use Illuminate\Support\Facades\DB;
 
 class ProjectController extends Controller
 {
-    private $projectCategoryRepository;
     private $projectRepository;
 
-    public function __construct(ProjectCategoryRepository $projectCategoryRepository,
-                                ProjectRepository         $projectRepository)
+    public function __construct(ProjectRepository         $projectRepository)
     {
-        $this->projectCategoryRepository = $projectCategoryRepository;
         $this->projectRepository = $projectRepository;
     }
 
@@ -31,8 +27,7 @@ class ProjectController extends Controller
 
     public function create()
     {
-        $categories = $this->projectCategoryRepository->getAll();
-        return view('admin.projects.create', compact('categories'));
+        return view('admin.projects.create');
     }
 
     public function store(StoreProjectRequest $request)
@@ -56,8 +51,7 @@ class ProjectController extends Controller
     public function edit($id)
     {
         $project = $this->projectRepository->findById($id);
-        $categories = $this->projectCategoryRepository->getAll();
-        return view('admin.projects.edit', compact('project', 'categories'));
+        return view('admin.projects.edit', compact('project'));
     }
 
     public function update(UpdateProjectRequest $request, $id)

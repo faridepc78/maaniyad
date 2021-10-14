@@ -20,15 +20,8 @@ class CreateProjectsTable extends Migration
             $table->string('customer');
             $table->longText('text');
             $table->string('link')->nullable();
-            $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('image_id')->nullable();
             $table->timestamps();
-
-            $table->foreign('category_id')
-                ->references('id')
-                ->on('projects_categories')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
 
             $table->foreign('image_id')
                 ->references('id')

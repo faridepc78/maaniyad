@@ -74,7 +74,7 @@
             <div class="zovio-responsive-menu">
                 <div class="logo">
                     <a href="{{route('home')}}">
-                        <img style="width: 50px;height: 50px" src="{{asset('assets/common/images/maaniyad.png')}}" alt="logo">
+                        <img style="width: 50px;height: 50px" src="{{asset('assets/common/images/maaniyad.jpeg')}}" alt="logo">
                     </a>
                 </div>
             </div>
@@ -84,7 +84,7 @@
     <div class="zovio-nav">
         <nav class="navbar navbar-expand-md navbar-light">
             <a class="navbar-brand" href="{{route('home')}}">
-                <img style="width: 50px;height: 50px" src="{{asset('assets/common/images/maaniyad.png')}}" alt="logo">
+                <img style="width: 50px;height: 50px" src="{{asset('assets/common/images/maaniyad.jpeg')}}" alt="logo">
             </a>
 
             <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
@@ -101,29 +101,8 @@
                             اصلی</a>
                     </li>
 
-                    <li class="nav-item"><a href="{{route('services')}}"
-                                            class="nav-link {{ request()->routeIs('services') ? 'active' : '' }}">خدمات</a>
-                    </li>
-
-                    <li class="nav-item"><a href="javascript:void(0)" class="nav-link">دسته بندی ها <i
-                                class="flaticon-down-chevron"></i></a>
-                        <ul class="dropdown-menu">
-                            @if (count($categories))
-
-                                @foreach($categories as $value)
-
-                                    <li class="nav-item"><a href="{{$value->path()}}"
-                                                            class="nav-link">{{$value->name}}</a></li>
-
-                                @endforeach
-
-                            @endif
-
-                        </ul>
-                    </li>
-
                     <li class="nav-item"><a href="{{route('projects')}}"
-                                            class="nav-link {{ request()->routeIs(['projects','projects.category','project','projects.search']) ? 'active' : '' }}">پروژه
+                                            class="nav-link {{ request()->routeIs(['projects','project','projects.search']) ? 'active' : '' }}">پروژه
                             ها</a>
                     </li>
 
@@ -139,15 +118,6 @@
                     <li class="nav-item"><a href="{{route('contact-us')}}"
                                             class="nav-link {{ request()->routeIs('contact-us') ? 'active' : '' }}">تماس
                             با ما</a>
-                    </li>
-
-                    <li class="nav-item"><a href="{{route('faq')}}"
-                                            class="nav-link {{ request()->routeIs('faq') ? 'active' : '' }}">سوالات
-                            متداول</a>
-                    </li>
-
-                    <li class="nav-item"><a href="{{route('team')}}"
-                                            class="nav-link {{ request()->routeIs('team') ? 'active' : '' }}">تیم ما</a>
                     </li>
 
                 </ul>

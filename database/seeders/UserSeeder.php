@@ -10,14 +10,16 @@ class UserSeeder extends Seeder
     public function run()
     {
         if (!User::query()->count()) {
-            User::query()->firstOrCreate([
-                'f_name' => 'فرید',
-                'l_name' => 'شیشه بری',
-                'email' => 'test@gmail.com',
-                'mobile' => '09123456789',
-                'password' => bcrypt('09123456789'),
-                'image_id' => null
-            ]);
+            foreach (User::$users as $user) {
+                User::query()->firstOrCreate([
+                    'f_name' => $user['f_name'],
+                    'l_name' => $user['l_name'],
+                    'email' => $user['email'],
+                    'mobile' => $user['mobile'],
+                    'password' => bcrypt($user['password']),
+                    'image_id' => null
+                ]);
+            }
         }
     }
 }

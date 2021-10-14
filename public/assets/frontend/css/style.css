@@ -86,6 +86,7 @@ img {
 
 .d-table-cell {
     vertical-align: middle;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 p {
@@ -811,8 +812,8 @@ Navbar Area CSS
     position: absolute;
     left: 0;
     top: 0;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    /*padding-top: 20px;*/
+    /*padding-bottom: 20px;*/
     padding-left: 35px;
     padding-right: 35px;
 }
@@ -821,6 +822,7 @@ Navbar Area CSS
     background-color: #ffffff;
     padding-top: 10px;
     padding-bottom: 10px;
+    height: 100px;
 }
 
 .navbar-area.navbar-style-two .zovio-nav .navbar {
@@ -1444,8 +1446,8 @@ Main Banner CSS
 .main-banner-content h1 {
     color: #ffffff;
     margin-bottom: 15px;
-    text-transform: uppercase;
-    font-size: 64px;
+    font-size: 30px;
+    text-align: right;
     font-weight: 700;
     font-family: "Vazir-FD", serif;
 }
@@ -3351,89 +3353,6 @@ Team Area CSS
 .team-slides.owl-theme .owl-nav [class*=owl-]:hover {
     background-color: #a53d35;
     color: #ffffff;
-}
-
-/*================================================
-Company Value Area CSS
-=================================================*/
-.company-value-image {
-    width: 100%;
-    height: 100%;
-    background-image: url(../../frontend/images/company-value-bg.jpg);
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.company-value-image img {
-    display: none;
-}
-
-.company-value-content {
-    max-width: 555px;
-    padding-top: 100px;
-    padding-bottom: 100px;
-    padding-left: 50px;
-}
-
-.company-value-content .sub-title {
-    display: block;
-    color: #a53d35;
-    margin-bottom: 5px;
-    font-weight: 400;
-    font-size: 18px;
-}
-
-.company-value-content h2 {
-    margin-bottom: 15px;
-    font-size: 40px;
-    font-weight: 700;
-    font-family: "Vazir-FD", serif;
-}
-
-.company-value-content h2 span {
-    color: #a53d35;
-    display: inline-block;
-}
-
-.company-value-content .company-value-features {
-    margin-top: 25px;
-}
-
-.company-value-content .company-value-features h3 {
-    margin-bottom: 20px;
-    font-size: 22px;
-    font-weight: 600;
-}
-
-.company-value-content .company-value-features ul {
-    padding-left: 0;
-    list-style-type: none;
-    margin-bottom: 0;
-}
-
-.company-value-content .company-value-features ul li {
-    margin-bottom: 10px;
-    color: #666666;
-    font-size: 15px;
-    position: relative;
-    padding-left: 20px;
-}
-
-.company-value-content .company-value-features ul li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-    width: 13px;
-    height: 1px;
-    background-color: #a53d35;
-}
-
-.company-value-content .company-value-features ul li:last-child {
-    margin-bottom: 0;
 }
 
 /*================================================

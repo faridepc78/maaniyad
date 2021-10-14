@@ -28,7 +28,6 @@ class UpdateProjectRequest extends FormRequest
             'customer' => ['required', 'string', 'max:255'],
             'text' => ['required', 'string'],
             'link' => ['nullable', 'url'],
-            'category_id' => ['required', 'exists:projects_categories,id'],
             'image' => ['nullable', 'mimes:jpg,png,jpeg', 'max:1024']
         ];
     }
@@ -41,7 +40,6 @@ class UpdateProjectRequest extends FormRequest
             'customer' => 'مشتری پروژه',
             'text' => 'توضیحات پروژه',
             'link' => 'لینک پروژه',
-            'category_id' => 'دسته بندی پروژه',
             'image' => 'تصویر پروژه'
         ];
     }

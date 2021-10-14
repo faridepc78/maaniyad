@@ -47,11 +47,6 @@
                     </div>
 
                     <div class="single-info-box">
-                        <h4>دسته بندی</h4>
-                        <span>{{$project->category->name}}</span>
-                    </div>
-
-                    <div class="single-info-box">
                         <h4>تاریخ</h4>
                         <span>{{\Morilog\Jalali\CalendarUtils::strftime('Y/m/d', strtotime($project['created_at']))}}</span>
                     </div>

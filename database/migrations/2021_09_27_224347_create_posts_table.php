@@ -17,7 +17,7 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->string('slug')->unique();
-            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('category_id')->nullable();
             $table->unsignedBigInteger('image_id')->nullable();
             $table->longText('text');
             $table->enum('status', \App\Models\Post::$statuses);
@@ -27,7 +27,7 @@ class CreatePostsTable extends Migration
                 ->references('id')
                 ->on('posts_categories')
                 ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
+                ->onDelete('SET NULL');
 
             $table->foreign('image_id')
                 ->references('id')

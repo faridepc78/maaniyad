@@ -28,21 +28,14 @@ class SettingController extends Controller
                     'customers_count' => null,
                     'team_count' => null,
                     'experience_count' => null,
-                    'index_about' => null,
-                    'index_item1' => null,
-                    'index_item2' => null,
-                    'index_item3' => null,
                     'instagram' => null,
                     'telegram' => null,
-                    'facebook' => null,
-                    'twitter' => null,
-                    'linkedin' => null,
+                    'whatsapp' => null,
                     'email' => null,
                     'address' => null,
                     'phone' => null,
                     'mobile' => null,
                     'about_page' => null,
-                    'services_page' => null,
                     'status' => 'store'
                 ];
         }

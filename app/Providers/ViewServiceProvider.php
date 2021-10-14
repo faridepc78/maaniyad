@@ -13,8 +13,6 @@ class ViewServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        View::composer('site.layout.header', CategoryComposer::class);
-
         View::composer(
             [
                 'site.blog.index',

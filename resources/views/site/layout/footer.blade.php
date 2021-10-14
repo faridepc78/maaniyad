@@ -5,9 +5,8 @@
                 <div class="single-footer-widget">
                     <div class="logo">
                         <a href="{{route('home')}}"><img style="width: 100px;height: 100px"
-                                                         src="{{asset('assets/common/images/maaniyad.png')}}"
+                                                         src="{{asset('assets/common/images/maaniyad.jpeg')}}"
                                                          alt="image"></a>
-                        <p>شرکت معماری مانیاد</p>
                     </div>
 
                     {{--<div class="newsletter-content">
@@ -30,13 +29,10 @@
 
                     <ul class="useful-links">
                         <li><a href="{{route('home')}}">صفحه اصلی</a></li>
-                        <li><a href="{{route('services')}}">خدمات</a></li>
                         <li><a href="{{route('projects')}}">پروژه ها</a></li>
                         <li><a href="{{route('blog')}}">وبلاگ</a></li>
                         <li><a href="{{route('about-us')}}">درباره ما</a></li>
                         <li><a href="{{route('contact-us')}}">تماس با ما</a></li>
-                        <li><a href="{{route('faq')}}">سوالات متداول</a></li>
-                        <li><a href="{{route('team')}}">تیم ما</a></li>
                     </ul>
 
                     <ul class="social">

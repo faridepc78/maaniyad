@@ -103,35 +103,6 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="category_id">دسته بندی پروژه *</label>
-                                    <select class="form-control  @error('category_id') is-invalid @enderror"
-                                            id="category_id"
-                                            name="category_id">
-                                        <option selected disabled value="">لطفا دسته بندی پروژه را انتخاب کنید</option>
-
-                                        @if (count($categories))
-
-                                            @foreach($categories as $value)
-
-                                                <option @if ($value->id==old('category_id'))
-                                                        selected="selected"
-                                                        @endif
-                                                        value="{{$value->id}}">{{$value->name}}</option>
-
-                                            @endforeach
-
-                                        @endif
-
-                                    </select>
-
-                                    @error('category_id')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group">
                                     <label for="image">تصویر پروژه *</label>
                                     <input accept=".jpg,.jpeg,.png" type="file"
                                            class="form-control @error('image') is-invalid @enderror"
@@ -205,10 +176,6 @@
                     checkUrl: true
                 },
 
-                category_id: {
-                    required: true
-                },
-
                 image: {
                     required: true
                 }
@@ -229,10 +196,6 @@
 
                 link: {
                     checkUrl: "لطفا لینک پروژه را صحیح وارد کنید"
-                },
-
-                category_id: {
-                    required: "لطفا دسته بندی پروژه را انتخاب کنید"
                 },
 
                 image: {
