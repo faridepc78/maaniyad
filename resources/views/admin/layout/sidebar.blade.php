@@ -211,20 +211,52 @@
                         </ul>
                     </li>
 
+                    <li class="nav-item has-treeview {{ request()->routeIs(['albums.index',
+'albums.create',
+'albums.edit',
+'albums.show']) ? 'menu-open' : '' }}">
+
+                        <a href="#"
+                           class="nav-link {{ request()->routeIs(['albums.index',
+'albums.create',
+'albums.edit',
+'albums.show']) ? 'active' : '' }}">
+                            <i class="nav-icon fa fa-database"></i>
+                            <p>
+                                آلبوم ها
+                                <i class="fa fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+                                <a href="{{ route('albums.index') }}"
+                                   class="nav-link {{ request()->routeIs(['albums.index']) ? 'active' : '' }}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>مدیریت آلبوم ها</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ route('albums.create') }}"
+                                   class="nav-link {{ request()->routeIs('albums.create') ? 'active' : '' }}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>ایجاد آلبوم ها</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
                     <li class="nav-item has-treeview {{ request()->routeIs(['products.index',
 'products.create',
-'products.edit',
-'products_categories.index',
-'products_categories.create',
-'products_categories.edit']) ? 'menu-open' : '' }}">
+'products.edit']) ? 'menu-open' : '' }}">
 
                         <a href="#"
                            class="nav-link {{ request()->routeIs(['products.index',
 'products.create',
-'products.edit',
-'products_categories.index',
-'products_categories.create',
-'products_categories.edit']) ? 'active' : '' }}">
+'products.edit']) ? 'active' : '' }}">
                             <i class="nav-icon fa fa-product-hunt"></i>
                             <p>
                                 محصولات
@@ -233,22 +265,6 @@
                         </a>
 
                         <ul class="nav nav-treeview">
-
-                            <li class="nav-item">
-                                <a href="{{route('products_categories.index')}}"
-                                   class="nav-link {{ request()->routeIs(['products_categories.index']) ? 'active' : '' }}">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>مدیریت دسته بندی ها</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="{{route('products_categories.create')}}"
-                                   class="nav-link {{ request()->routeIs(['products_categories.create']) ? 'active' : '' }}">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>ایجاد دسته بندی ها</p>
-                                </a>
-                            </li>
 
                             <li class="nav-item">
                                 <a href="{{ route('products.index') }}"

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductsTable extends Migration
+class CreateAlbumsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,25 +13,24 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('albums', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
             $table->string('slug')->unique();
-            $table->string('code')->unique();
-            $table->unsignedBigInteger('category_id')->nullable();
             $table->unsignedBigInteger('image_id')->nullable();
-            $table->longText('text');
+            $table->unsignedBigInteger('parent_id')->nullable();
+            $table->longText('text')->nullable();
             $table->timestamps();
-
-            $table->foreign('category_id')
-                ->references('id')
-                ->on('products_categories')
-                ->onUpdate('CASCADE')
-                ->onDelete('SET NULL');
 
             $table->foreign('image_id')
                 ->references('id')
                 ->on('media')
+                ->onUpdate('CASCADE')
+                ->onDelete('SET NULL');
+
+            $table->foreign('parent_id')
+                ->references('id')
+                ->on('albums')
                 ->onUpdate('CASCADE')
                 ->onDelete('SET NULL');
         });
@@ -44,6 +43,6 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('albums');
     }
 }

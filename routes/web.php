@@ -40,7 +40,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'my_auth', 'throttle:
     Route::delete('posts/comments/destroy/{id}','PostCommentController@destroy')->name('posts.comments.destroy');
     Route::patch('posts/comments/update_status/{id}','PostCommentController@update_status')->name('posts.comments.update_status');
 
-    Route::resource('products_categories', 'ProductCategoryController')->except('show');
+    Route::resource('albums', 'AlbumController');
 
     Route::resource('products', 'ProductController')->except('show');
 

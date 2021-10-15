@@ -20,14 +20,14 @@ class Product extends Model
             'name',
             'slug',
             'code',
-            'category_id',
+            'album_id',
             'image_id',
             'text'
         ];
 
-    public function category()
+    public function album()
     {
-        return $this->belongsTo(ProductCategory::class, 'category_id', 'id')->withDefault();
+        return $this->belongsTo(Album::class, 'album_id', 'id')->withDefault();
     }
 
     public function image()
