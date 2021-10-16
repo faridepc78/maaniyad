@@ -14,8 +14,7 @@ class StoreProductRequest extends FormRequest
     public function prepareForValidation()
     {
         return $this->merge([
-            'slug' => str_slug_persian(request('slug')),
-            'code' => 'mp-' . randomNumbers(10)
+            'slug' => str_slug_persian(request('slug'))
         ]);
     }
 
@@ -24,7 +23,8 @@ class StoreProductRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255', 'unique:products,name'],
             'slug' => ['required', 'string', 'max:255', 'unique:products,slug'],
-            'category_id' => ['required', 'exists:products_categories,id'],
+            'code' => ['required', 'string', 'max:255', 'unique:products,code'],
+            'album_id' => ['required', 'exists:albums,id'],
             'image' => ['required', 'mimes:jpg,png,jpeg', 'max:1024'],
             'text' => ['required', 'string']
         ];
@@ -35,7 +35,7 @@ class StoreProductRequest extends FormRequest
         return [
             'name' => 'نام محصول',
             'slug' => 'اسلاگ محصول',
-            'category_id' => 'دسته بندی محصول',
+            'album_id' => 'آلبوم محصول',
             'image' => 'تصویر محصول',
             'text' => 'توضیحات محصول'
         ];

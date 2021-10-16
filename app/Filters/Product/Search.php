@@ -14,7 +14,9 @@ class Search extends Filter
 
         if ($keyword != null) {
             return $builder->where('name', 'like', '%' . $keyword . '%')
-                ->orWhere('customer', 'like', '%' . $keyword . '%');
+                ->orWhereHas('album', function ($query) use ($keyword) {
+                    $query->where('name', 'like', '%' . $keyword . '%');
+                });
         } else {
             return $builder;
         }

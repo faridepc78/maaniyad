@@ -3,91 +3,137 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Album\StoreAlbumRequest;
+use App\Http\Requests\Admin\Album\UpdateAlbumRequest;
 use App\Repositories\AlbumRepository;
-use Illuminate\Http\Request;
+use App\Repositories\ProductRepository;
+use App\Services\Media\MediaFileService;
+use Exception;
+use Illuminate\Support\Facades\DB;
 
 class AlbumController extends Controller
 {
     private $albumRepository;
+    private $productRepository;
 
-    public function __construct(AlbumRepository $albumRepository)
+    public function __construct(AlbumRepository   $albumRepository,
+                                ProductRepository $productRepository)
     {
         $this->albumRepository = $albumRepository;
+        $this->productRepository = $productRepository;
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $albums = $this->albumRepository->paginate();
+        return view('admin.albums.index', compact('albums'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        $getParents = $this->albumRepository->getParents();
+        return view('admin.albums.create', compact('getParents'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(StoreAlbumRequest $request)
     {
-        //
+        try {
+            DB::transaction(function () use ($request) {
+                $album = $this->albumRepository->store($request);
+                if ($request->exists('image')) {
+                    $image_id = MediaFileService::publicUpload($request->file('image'),
+                        'albums', null)->id;
+                    $this->albumRepository->addImage($image_id, $album->id);
+                }
+            });
+            DB::commit();
+            newFeedback();
+        } catch (Exception $exception) {
+            DB::rollBack();
+            newFeedback('پیام', 'عملیات با شکست مواجه شد', 'error');
+        }
+        return redirect()->route('albums.create');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        $album = $this->albumRepository->findById($id);
+
+        if ($album['parent_id'] == null) {
+            $albums = $this->albumRepository->getSubs($album['id']);
+            return view('admin.albums.show', compact('albums', 'album'));
+        } else {
+            abort(404);
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $getParents = $this->albumRepository->getParents();
+        $album = $this->albumRepository->findById($id);
+        return view('admin.albums.edit', compact('getParents', 'album'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(UpdateAlbumRequest $request, $id)
     {
-        //
+        try {
+            DB::transaction(function () use ($request, $id) {
+                $album = $this->albumRepository->findById($id);
+
+                if ($request->hasFile('image')) {
+                    $this->albumRepository->update($request, null, $id);
+                    $image_id = MediaFileService::publicUpload($request->file('image'),
+                        'albums', null)->id;
+                    $this->albumRepository->addImage($image_id, $album->id);
+                    if ($album->image) {
+                        $album->image->delete();
+                    }
+                } else {
+                    $this->albumRepository->update($request, $album->image_id, $id);
+                }
+            });
+            DB::commit();
+            newFeedback();
+        } catch (Exception $exception) {
+            DB::rollBack();
+            newFeedback('پیام', 'عملیات با شکست مواجه شد', 'error');
+        }
+        return redirect()->route('albums.edit', $id);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        try {
+            DB::transaction(function () use ($id) {
+                $album = $this->albumRepository->findById($id);
+
+                if (count($album->sub)) {
+                    newFeedback('پیام', 'حذف امکان پذیر نیست این آلبوم دارای زیر مجموعه است', 'warning');
+                } else {
+                    if ($album->image) {
+                        $album->image->delete();
+                    }
+
+                    $album->delete();
+                    DB::commit();
+                    newFeedback();
+                }
+            });
+        } catch (Exception $exception) {
+            DB::rollBack();
+            newFeedback('پیام', 'عملیات با شکست مواجه شد', 'error');
+        }
+        return redirect()->back();
+    }
+
+    public function products($album_id)
+    {
+        $album = $this->albumRepository->findById($album_id);
+        if ($album['parent_id'] !== null) {
+            $products = $this->productRepository->paginateByFiltersByAlbumId($album_id);
+            return view('admin.albums.products.index', compact('album', 'products'));
+        } else {
+            abort(403);
+        }
     }
 }

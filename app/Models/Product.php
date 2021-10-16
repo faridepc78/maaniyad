@@ -34,4 +34,9 @@ class Product extends Model
     {
         return $this->belongsTo(Media::class, 'image_id', 'id')->withDefault();
     }
+
+    public function attributes()
+    {
+        return $this->hasMany(ProductAttributeValue::class, 'product_id', 'id');
+    }
 }

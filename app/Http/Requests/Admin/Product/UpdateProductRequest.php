@@ -14,8 +14,7 @@ class UpdateProductRequest extends FormRequest
     public function prepareForValidation()
     {
         return $this->merge([
-            'slug' => str_slug_persian(request('slug')),
-            'code' => 'mp-' . randomNumbers(10)
+            'slug' => str_slug_persian(request('slug'))
         ]);
     }
 
@@ -26,7 +25,8 @@ class UpdateProductRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255', 'unique:products,name,' . $id],
             'slug' => ['required', 'string', 'max:255', 'unique:products,slug,' . $id],
-            'category_id' => ['required', 'exists:products_categories,id'],
+            'code' => ['required', 'string', 'max:255', 'unique:products,code,' . $id],
+            'album_id' => ['required', 'exists:albums,id'],
             'image' => ['nullable', 'mimes:jpg,png,jpeg', 'max:1024'],
             'text' => ['required', 'string']
         ];
@@ -37,7 +37,7 @@ class UpdateProductRequest extends FormRequest
         return [
             'name' => 'نام محصول',
             'slug' => 'اسلاگ محصول',
-            'category_id' => 'دسته بندی محصول',
+            'album_id' => 'آلبوم محصول',
             'image' => 'تصویر محصول',
             'text' => 'توضیحات محصول'
         ];

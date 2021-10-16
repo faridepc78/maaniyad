@@ -38,4 +38,9 @@ class Album extends Model
     {
         return $this->hasMany(Album::class, 'parent_id', 'id');
     }
+
+    public function attributes()
+    {
+        return $this->hasMany(AlbumAttribute::class, 'album_id', 'id');
+    }
 }

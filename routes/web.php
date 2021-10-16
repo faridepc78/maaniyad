@@ -42,7 +42,19 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'my_auth', 'throttle:
 
     Route::resource('albums', 'AlbumController');
 
+    Route::get('albums/{album_id}/products','AlbumController@products')->name('albums.products');
+
+    Route::get('albums/{album_id}/attributes','AlbumAttributeController@index')->name('albums.attributes.index');
+    Route::get('albums/{album_id}/attributes/create','AlbumAttributeController@create')->name('albums.attributes.create');
+    Route::post('albums/{album_id}/attributes/store','AlbumAttributeController@store')->name('albums.attributes.store');
+    Route::get('albums/{album_id}/attributes/edit/{id}','AlbumAttributeController@edit')->name('albums.attributes.edit');
+    Route::patch('albums/{album_id}/attributes/update/{id}','AlbumAttributeController@update')->name('albums.attributes.update');
+    Route::delete('albums/{album_id}/attributes/destroy/{id}','AlbumAttributeController@destroy')->name('albums.attributes.destroy');
+
     Route::resource('products', 'ProductController')->except('show');
+
+    Route::get('product/attributes/{product_id}','ProductController@attributes')->name('product.attributes');
+    Route::patch('product/attributes/{product_id}','ProductController@attributes_createOrUpdate')->name('product.attributes.createOrUpdate');
 
     Route::resource('brands', 'BrandController')->except('show');
 

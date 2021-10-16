@@ -214,13 +214,19 @@
                     <li class="nav-item has-treeview {{ request()->routeIs(['albums.index',
 'albums.create',
 'albums.edit',
-'albums.show']) ? 'menu-open' : '' }}">
+'albums.show',
+'albums.attributes.index',
+'albums.attributes.create',
+'albums.attributes.edit']) ? 'menu-open' : '' }}">
 
                         <a href="#"
                            class="nav-link {{ request()->routeIs(['albums.index',
 'albums.create',
 'albums.edit',
-'albums.show']) ? 'active' : '' }}">
+'albums.show',
+'albums.attributes.index',
+'albums.attributes.create',
+'albums.attributes.edit']) ? 'active' : '' }}">
                             <i class="nav-icon fa fa-database"></i>
                             <p>
                                 آلبوم ها

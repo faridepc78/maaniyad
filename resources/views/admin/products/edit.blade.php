@@ -1,5 +1,5 @@
 @section('admin_title')
-    <title>پنل مدیریت مانیاد | پست ها</title>
+    <title>پنل مدیریت مانیاد | محصولات</title>
 @endsection
 
 @include('admin.layout.header')
@@ -14,10 +14,10 @@
 
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{route('posts.index')}}">مدیریت پست ها</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('products.index')}}">مدیریت محصولات</a></li>
                         <li class="breadcrumb-item"><a class="my-active"
-                                                       href="{{route('posts.edit',$post->id)}}">ویرایش
-                                پست ({{$post->name}})</a></li>
+                                                       href="{{route('products.edit',$product->id)}}">ویرایش
+                                محصول ({{$product->name}})</a></li>
                     </ol>
                 </div>
 
@@ -33,10 +33,10 @@
                     <div class="card card-success">
 
                         <div class="card-header">
-                            <h3 class="card-title">ویرایش پست ({{$post->name}})</h3>
+                            <h3 class="card-title">ویرایش محصول ({{$product->name}})</h3>
                         </div>
 
-                        <form id="update_post_form" action="{{route('posts.update',$post->id)}}"
+                        <form id="update_product_form" action="{{route('products.update',$product->id)}}"
                               method="post" enctype="multipart/form-data">
 
                             @csrf
@@ -45,11 +45,11 @@
                             <div class="card-body">
 
                                 <div class="form-group">
-                                    <label for="name">نام پست *</label>
+                                    <label for="name">نام محصول *</label>
                                     <input onkeyup="this.value=removeSpaces(this.value)" type="text"
                                            class="form-control @error('name') is-invalid @enderror"
-                                           value="{{ old('name',$post->name) }}" id="name" name="name"
-                                           placeholder="لطفا نام پست را وارد کنید"
+                                           value="{{ old('name',$product->name) }}" id="name" name="name"
+                                           placeholder="لطفا نام محصول را وارد کنید"
                                            autocomplete="name" autofocus>
 
                                     @error('name')
@@ -60,11 +60,11 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="slug">اسلاگ پست *</label>
+                                    <label for="slug">اسلاگ محصول *</label>
                                     <input onkeyup="this.value=removeSpaces(this.value)" type="text"
                                            class="form-control @error('slug') is-invalid @enderror"
-                                           value="{{ old('slug',$post->slug) }}" id="slug" name="slug"
-                                           placeholder="لطفا اسلاگ پست را وارد کنید"
+                                           value="{{ old('slug',$product->slug) }}" id="slug" name="slug"
+                                           placeholder="لطفا اسلاگ محصول را وارد کنید"
                                            autocomplete="slug" autofocus>
 
                                     @error('slug')
@@ -75,28 +75,14 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="category_id">دسته بندی پست *</label>
-                                    <select class="form-control  @error('category_id') is-invalid @enderror"
-                                            id="category_id"
-                                            name="category_id">
-                                        <option selected disabled value="">لطفا دسته بندی پست را انتخاب کنید</option>
+                                    <label for="code">کد محصول *</label>
+                                    <input onkeyup="this.value=removeSpaces(this.value)" type="text"
+                                           class="form-control @error('code') is-invalid @enderror"
+                                           value="{{ old('code',$product->code) }}" id="code" name="code"
+                                           placeholder="لطفا کد محصول را وارد کنید"
+                                           autocomplete="code" autofocus>
 
-                                        @if (count($categories))
-
-                                            @foreach($categories as $value)
-
-                                                <option @if ($value->id==old('category_id',$post->category_id))
-                                                        selected="selected"
-                                                        @endif
-                                                        value="{{$value->id}}">{{$value->name}}</option>
-
-                                            @endforeach
-
-                                        @endif
-
-                                    </select>
-
-                                    @error('category_id')
+                                    @error('code')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -104,10 +90,57 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="image">تصویر پست</label>
+                                    <label for="album_id">آلبوم محصول *</label>
+                                    <select class="form-control  @error('album_id') is-invalid @enderror"
+                                            id="album_id"
+                                            name="album_id">
+                                        <option selected disabled value="">
+                                            لطفا آلبوم محصول را انتخاب کنید
+                                        </option>
 
-                                    <img class="img-bordered" style="width: 150px;height: 150px" src="{{$post->image->original}}"
-                                         alt="{{$post->image->original}}">
+                                        @if (count($albums))
+
+                                            @foreach($albums as $value)
+
+                                                <optgroup label="{{$value->name}}">
+
+                                                    <option disabled value="" style="font-size: 18px">{{$value->name}}</option>
+
+                                                    @if (count($value->sub))
+
+                                                        @foreach($value->sub as $item)
+
+                                                            <option style="color: red"
+                                                                    @if ($item->id==old('album_id',$product['album_id']))
+                                                                    selected="selected"
+                                                                    @endif
+                                                                    value="{{$item->id}}">{{$item->name}}</option>
+
+                                                        @endforeach
+
+                                                    @endif
+
+                                                </optgroup>
+
+                                            @endforeach
+
+                                        @endif
+
+                                    </select>
+
+                                    @error('album_id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="image">تصویر محصول</label>
+
+                                    <img class="img-bordered" style="width: 150px;height: 150px"
+                                         src="{{$product->image->original}}"
+                                         alt="{{$product->image->original}}">
 
                                     <input accept=".jpg,.jpeg,.png" type="file"
                                            class="form-control @error('image') is-invalid @enderror"
@@ -121,35 +154,11 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="status">وضعیت پست *</label>
-                                    <select class="form-control  @error('status') is-invalid @enderror"
-                                            id="status"
-                                            name="status">
-                                        <option selected disabled value="">لطفا وضعیت پست را انتخاب کنید</option>
-
-                                        @foreach(\App\Models\Post::$statuses as $value)
-                                            <option
-                                                @if ($value==old('status',$post->status))
-                                                selected="selected"
-                                                @endif
-                                                value="{{$value}}">@lang($value)</option>
-                                        @endforeach
-
-                                    </select>
-
-                                    @error('status')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="text">توضیحات پست *</label>
+                                    <label for="text">توضیحات محصول *</label>
                                     <textarea class="form-control ckeditor @error('text') is-invalid @enderror"
                                               id="text"
                                               name="text" autocomplete="text"
-                                              autofocus>{{ old('text',$post->text) }}</textarea>
+                                              autofocus>{{ old('text',$product->text) }}</textarea>
 
                                     @error('text')
                                     <span class="invalid-feedback" role="alert">
@@ -184,9 +193,9 @@
     $(document).ready(function () {
 
         var text_field = 'text';
-        var text_error = 'لطفا توضیحات پست را وارد کنید';
+        var text_error = 'لطفا توضیحات محصول را وارد کنید';
 
-        $('#update_post_form').validate({
+        $('#update_product_form').validate({
 
             rules: {
                 name: {
@@ -197,30 +206,30 @@
                     required: true
                 },
 
-                category_id: {
+                code: {
                     required: true
                 },
 
-                status: {
+                album_id: {
                     required: true
                 }
             },
 
             messages: {
                 name: {
-                    required: "لطفا نام پست را وارد کنید"
+                    required: "لطفا نام محصول را وارد کنید"
                 },
 
                 slug: {
-                    required: "لطفا اسلاگ پست را وارد کنید"
+                    required: "لطفا اسلاگ محصول را وارد کنید"
                 },
 
-                category_id: {
-                    required: "لطفا دسته بندی پست را انتخاب کنید"
+                code: {
+                    required: "لطفا کد محصول را وارد کنید"
                 },
 
-                status: {
-                    required: "لطفا وضعیت پست را انتخاب کنید"
+                album_id: {
+                    required: "لطفا آلبوم محصول را انتخاب کنید"
                 }
             },
             submitHandler: function (form) {
