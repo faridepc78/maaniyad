@@ -2,9 +2,9 @@
 
 namespace App\Repositories;
 
-use App\Filters\Comment\Answer;
-use App\Filters\Comment\Search;
-use App\Filters\Comment\Status;
+use App\Filters\Comment\Post\Answer;
+use App\Filters\Comment\Post\Search;
+use App\Filters\Comment\Post\Status;
 use App\Models\PostComment;
 use Illuminate\Pipeline\Pipeline;
 

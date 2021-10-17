@@ -29,7 +29,7 @@ class ContactController extends Controller
         try {
             if ($contact['type'] == ContactUs::UNREAD) {
                 $this->contactUsRepository->updateType($contact['id']);
-                $contact = $this->contactUsRepository->findById($id);
+                $contact->refresh();
                 return view('admin.contacts.single', compact('contact'));
             } else {
                 return view('admin.contacts.single', compact('contact'));

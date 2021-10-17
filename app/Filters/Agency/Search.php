@@ -1,10 +1,11 @@
 <?php
 
 
-namespace App\Filters\Comment;
+namespace App\Filters\Agency;
 
 
 use App\Filters\Filter;
+use Morilog\Jalali\Jalalian;
 
 class Search extends Filter
 {
@@ -13,9 +14,8 @@ class Search extends Filter
         $keyword = request($this->filterName());
 
         if ($keyword != null) {
-            return $builder->whereHas('post', function ($query) use ($keyword) {
-                $query->where('name', 'like', '%' . $keyword . '%');
-            });
+            $date = Jalalian::fromFormat('Y-m-d', convert(request($this->filterName())))->toCarbon()->toDateString();
+            return $builder->whereDate('created_at', $date);
         } else {
             return $builder;
         }

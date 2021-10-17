@@ -33,6 +33,7 @@
                         <li><a href="{{route('blog')}}">وبلاگ</a></li>
                         <li><a href="{{route('about-us')}}">درباره ما</a></li>
                         <li><a href="{{route('contact-us')}}">تماس با ما</a></li>
+                        <li><a href="{{route('agency')}}">درخواست نمایندگی فروش</a></li>
                     </ul>
 
                     <ul class="social">
@@ -47,18 +48,8 @@
                             </li>
                         @endif
 
-                        @if ($settings['facebook']!==null)
-                            <li><a href="{{$settings['facebook']}}" target="_blank"><i class="fa fa-facebook"></i></a>
-                            </li>
-                        @endif
-
-                        @if ($settings['twitter']!==null)
-                            <li><a href="{{$settings['twitter']}}" target="_blank"><i class="fa fa-twitter"></i></a>
-                            </li>
-                        @endif
-
-                        @if ($settings['linkedin']!==null)
-                            <li><a href="{{$settings['linkedin']}}" target="_blank"><i class="fa fa-linkedin"></i></a>
+                        @if ($settings['whatsapp']!==null)
+                            <li><a href="{{$settings['whatsapp']}}" target="_blank"><i class="fa fa-whatsapp"></i></a>
                             </li>
                         @endif
 
@@ -76,15 +67,15 @@
                         @endif
 
                         @if ($settings['email']!==null)
-                                <li><i class="far fa-envelope"></i> {{$settings['email']}}</li>
+                            <li><i class="far fa-envelope"></i> {{$settings['email']}}</li>
                         @endif
 
                         @if ($settings['phone']!==null)
-                                <li><i class="fas fa-phone"></i> {{$settings['phone']}}</a></li>
+                            <li><i class="fas fa-phone"></i> {{$settings['phone']}}</a></li>
                         @endif
 
                         @if ($settings['mobile']!==null)
-                                <li><i class="fas fa-mobile"></i> {{$settings['mobile']}}</li>
+                            <li><i class="fas fa-mobile"></i> {{$settings['mobile']}}</li>
                         @endif
 
                     </ul>
@@ -127,7 +118,7 @@
 
 <script type="text/javascript">
 
-    $(document).ready(function (){
+    $(document).ready(function () {
         $('#search_form').on('submit', function (e) {
             e.preventDefault();
             let search = $('#search').val();

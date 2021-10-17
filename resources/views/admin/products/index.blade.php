@@ -59,6 +59,7 @@
                                     <th>آلبوم</th>
                                     <th>تصویر</th>
                                     <th>ویژگی ها</th>
+                                    <th>گالری</th>
                                     <th>ویرایش</th>
                                     <th>حذف</th>
                                 </tr>
@@ -79,6 +80,11 @@
                                             <td>
                                                 <a target="_blank" href="{{route('product.attributes',$value->id)}}">
                                                     <i class="fa fa-database text-warning"></i>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a target="_blank" href="{{route('products.gallery.index',$value->id)}}">
+                                                    <i class="fa fa-image text-success"></i>
                                                 </a>
                                             </td>
                                             <td>

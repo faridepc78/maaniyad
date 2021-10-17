@@ -102,6 +102,12 @@ class ProductController extends Controller
                     $product->image->delete();
                 }
 
+                if (count($product->gallery)) {
+                    foreach ($product->gallery as $image) {
+                        $image->image->delete();
+                    }
+                }
+
                 $product->delete();
             });
             DB::commit();

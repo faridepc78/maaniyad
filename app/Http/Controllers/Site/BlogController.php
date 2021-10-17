@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Site\Comment\CommentRequest;
+use App\Http\Requests\Site\PostComment\PostCommentRequest;
 use App\Repositories\PostCategoryRepository;
 use App\Repositories\PostCommentRepository;
 use App\Repositories\PostRepository;
@@ -61,10 +61,10 @@ class BlogController extends Controller
             compact('keyword', 'posts'));
     }
 
-    public function register_comment(CommentRequest $request)
+    public function register_comment(PostCommentRequest $request, $post_id)
     {
         try {
-            $post = $this->postRepository->findById($request->get('post_id'));
+            $post = $this->postRepository->findById(extractId($post_id));
             $this->postCommentRepository->store($request);
             newFeedback('پیام', 'نظر شما با موفقیت ثبت و پس از تایید توسط مدیریت نمایش داده میشود', 'success');
         } catch (Exception $exception) {

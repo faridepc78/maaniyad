@@ -8,7 +8,7 @@
 
     <ol class="comment-list">
 
-        @if ($comments)
+        @if (count($comments))
 
             @foreach($comments as $value)
 
@@ -25,6 +25,7 @@
                             <div class="comment-metadata">
                                 <time>{{\Morilog\Jalali\CalendarUtils::strftime('j F Y || H:i:s', strtotime($value['created_at']))}}</time>
                             </div>
+                            <p>{{$value['site']}}</p>
                         </footer>
 
                         <div class="comment-content">

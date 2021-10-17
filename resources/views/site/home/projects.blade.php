@@ -1,10 +1,7 @@
 <section class="projects-area ptb-100 pt-0">
     <div class="container">
         <div class="section-title">
-            <span class="sub-title">پروژه های ما</span>
-            <h2>کارهای ما</h2>
-            <p>لورم ایپسوم به سادگی ساختار چاپ و متن را در بر می گیرد. لورم ایپسوم به مدت 40 سال استاندارد صنعت بوده
-                است.</p>
+            <h2>پروژه ها</h2>
         </div>
     </div>
 

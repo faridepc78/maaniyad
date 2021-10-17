@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 /*START ADMIN*/
 
-Route::group(['prefix' => 'admin', 'middleware' => ['web', 'my_auth', 'throttle:50,1'],
+Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth', 'throttle:50,1'],
     'namespace' => 'App\Http\Controllers\Admin'], function () {
 
     Route::get('/', function () {
@@ -56,12 +56,26 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'my_auth', 'throttle:
     Route::get('product/attributes/{product_id}','ProductController@attributes')->name('product.attributes');
     Route::patch('product/attributes/{product_id}','ProductController@attributes_createOrUpdate')->name('product.attributes.createOrUpdate');
 
+    Route::get('products/gallery/{product_id}', 'ProductGalleryController@index')->name('products.gallery.index');
+    Route::post('products/gallery/{product_id}', 'ProductGalleryController@store')->name('products.gallery.store');
+    Route::delete('products/gallery/{product_id}/{id}/destroy', 'ProductGalleryController@destroy')->name('products.gallery.destroy');
+
+    Route::get('products/comments/pending', 'ProductCommentController@pending')->name('products.comments.pending');
+    Route::get('products/comments/index', 'ProductCommentController@index')->name('products.comments.index');
+    Route::get('products/comments/single/{id}', 'ProductCommentController@single')->name('products.comments.single');
+    Route::patch('products/comments/single/management/{id}', 'ProductCommentController@management')->name('products.comments.management');
+    Route::delete('products/comments/destroy/{id}','ProductCommentController@destroy')->name('products.comments.destroy');
+    Route::patch('products/comments/update_status/{id}','ProductCommentController@update_status')->name('products.comments.update_status');
+
     Route::resource('brands', 'BrandController')->except('show');
 
     Route::resource('feedbacks', 'FeedbackController')->except('show');
 
     Route::get('contacts', 'ContactController@index')->name('contacts.index');
     Route::get('contacts/single/{id}', 'ContactController@single')->name('contacts.single');
+
+    Route::get('agencies', 'AgencyController@index')->name('agencies.index');
+    Route::get('agencies/single/{id}', 'AgencyController@single')->name('agencies.single');
 
     Route::get('settings', 'SettingController@index')->name('settings.index');
     Route::post('settings', 'SettingController@do')->name('settings.store');
@@ -98,9 +112,17 @@ Route::group(['prefix' => '/', 'middleware' => ['web', 'throttle:50,1'],
     Route::get('contact-us', 'MainController@contact_us')->name('contact-us');
     Route::post('contact-us', 'MainController@contact_us_send')->name('contact-us-send');
 
+    Route::get('agency', 'MainController@agency')->name('agency');
+    Route::post('agency', 'MainController@agency_send')->name('agency-send');
+
     Route::get('projects', 'MainController@projects')->name('projects');
     Route::get('project/{slug}', 'MainController@project')->name('project');
     Route::get('projects/search', 'MainController@search')->name('projects.search');
+
+    Route::get('albums','ProductController@albums')->name('albums');
+    Route::get('album/{slug}','ProductController@album')->name('album');
+    Route::get('product/{slug}','ProductController@index')->name('product');
+    Route::post('product/register_comment/{product_id}', 'ProductController@register_comment')->name('product.register_comment');
 
     Route::get('blog', 'BlogController@index')->name('blog');
     Route::get('blog/category/{slug}', 'BlogController@category')->name('blog.category');

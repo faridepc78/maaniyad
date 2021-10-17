@@ -74,4 +74,30 @@ class ProductRepository
                 'text' => $values['text']
             ]);
     }
+
+    public function findByAlbumId($album_id)
+    {
+        return Product::query()
+            ->where('album_id', '=', $album_id)
+            ->latest()
+            ->paginate(12);
+    }
+
+    public function related($album_id, $product_id)
+    {
+        return Product::query()
+            ->where('album_id', '=', $album_id)
+            ->whereNotIn('id', [$product_id])
+            ->latest()
+            ->limit(3)
+            ->get();
+    }
+
+    public function random()
+    {
+        return Product::query()
+            ->inRandomOrder()
+            ->limit(6)
+            ->get();
+    }
 }

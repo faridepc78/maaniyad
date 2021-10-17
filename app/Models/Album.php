@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Vinkla\Hashids\Facades\Hashids;
 
 class Album extends Model
 {
@@ -42,5 +43,20 @@ class Album extends Model
     public function attributes()
     {
         return $this->hasMany(AlbumAttribute::class, 'album_id', 'id');
+    }
+
+    public function path()
+    {
+        return route('album', Hashids::encode($this->id) . '-' . $this->slug);
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'album_id', 'id');
+    }
+
+    public function count_products()
+    {
+        return $this->products()->count();
     }
 }

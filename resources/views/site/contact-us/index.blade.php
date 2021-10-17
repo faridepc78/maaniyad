@@ -21,8 +21,6 @@
     <div class="container">
         <div class="section-title">
             <span class="sub-title">ارسال پیام</span>
-            <h2>برای هرگونه سؤال برای ما پیامی بگذارید</h2>
-            <p>اگر ایده ای دارید ، می خواهیم در مورد آن بشنویم.</p>
         </div>
 
         <div class="row">
@@ -134,37 +132,8 @@
                 </div>
             </div>
 
-            <div class="col-lg-5 col-md-12">
-                <div class="contact-info">
-                    <ul>
-                        <li>
-                            <div class="icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <span>آدرس شما</span>
-                            کشور شما ، شهر و استان شما ، منطقه شما
-                        </li>
+            @include('site.layout.common')
 
-                        <li>
-                            <div class="icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <span>ایمیل شما</span>
-                            <a href="#">info@yoursite.com</a>
-                            <a href="#">info@yoursite.com</a>
-                        </li>
-
-                        <li>
-                            <div class="icon">
-                                <i class="fas fa-phone-volume"></i>
-                            </div>
-                            <span>تماس بگیرید</span>
-                            <a href="#">+44 587 154756</a>
-                            <a href="#">+55 5555 14574</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
         </div>
     </div>
 

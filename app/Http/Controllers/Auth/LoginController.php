@@ -25,7 +25,7 @@ class LoginController extends Controller
             if (request()->input('token')) {
                 $token = request()->input('token');
 
-                if (Crypt::decrypt($token) == env('LOGIN_TOKEN')) {
+                if ($token == env('PANEL_TOKEN')) {
                     return view('auth.login');
                 } else {
                     abort(404);
@@ -41,7 +41,7 @@ class LoginController extends Controller
     protected function sendFailedLoginResponse(LoginRequest $request)
     {
         throw ValidationException::withMessages([
-            'failed' => [trans('auth.failed')],
+            'failed' => [trans('auth.failed')]
         ]);
     }
 

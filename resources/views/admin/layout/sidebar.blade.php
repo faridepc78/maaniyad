@@ -257,12 +257,22 @@
 
                     <li class="nav-item has-treeview {{ request()->routeIs(['products.index',
 'products.create',
-'products.edit']) ? 'menu-open' : '' }}">
+'products.edit',
+'products.comments.pending',
+'products.comments.index',
+'products.comments.single',
+'product.attributes',
+'products.gallery.index']) ? 'menu-open' : '' }}">
 
                         <a href="#"
                            class="nav-link {{ request()->routeIs(['products.index',
 'products.create',
-'products.edit']) ? 'active' : '' }}">
+'products.edit',
+'products.comments.pending',
+'products.comments.index',
+'products.comments.single',
+'product.attributes',
+'products.gallery.index']) ? 'active' : '' }}">
                             <i class="nav-icon fa fa-product-hunt"></i>
                             <p>
                                 محصولات
@@ -285,6 +295,22 @@
                                    class="nav-link {{ request()->routeIs('products.create') ? 'active' : '' }}">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>ایجاد محصولات</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ route('products.comments.pending') }}"
+                                   class="nav-link {{ request()->routeIs(['products.comments.pending']) ? 'active' : '' }}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p style="font-size: 14px">مدیریت نظرات در حال برسی</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{ route('products.comments.index') }}"
+                                   class="nav-link {{ request()->routeIs('products.comments.index') ? 'active' : '' }}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>مدیریت نظرات</p>
                                 </a>
                             </li>
 
@@ -383,6 +409,32 @@
                                    class="nav-link {{ request()->routeIs(['contacts.index','contacts.single']) ? 'active' : '' }}">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>مدیریت تماس ها</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item has-treeview {{ request()->routeIs(['agencies.index',
+'agencies.single']) ? 'menu-open' : '' }}">
+
+                        <a href="#"
+                           class="nav-link {{ request()->routeIs(['agencies.index',
+'agencies.single']) ? 'active' : '' }}">
+                            <i class="nav-icon fa fa-whatsapp"></i>
+                            <p>
+                                درخواست ها
+                                <i class="fa fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+                                <a href="{{ route('agencies.index') }}"
+                                   class="nav-link {{ request()->routeIs(['agencies.index','agencies.single']) ? 'active' : '' }}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>مدیریت درخواست ها</p>
                                 </a>
                             </li>
 

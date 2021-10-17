@@ -74,7 +74,8 @@
             <div class="zovio-responsive-menu">
                 <div class="logo">
                     <a href="{{route('home')}}">
-                        <img style="width: 50px;height: 50px" src="{{asset('assets/common/images/maaniyad.jpeg')}}" alt="logo">
+                        <img style="width: 50px;height: 50px" src="{{asset('assets/common/images/maaniyad.jpeg')}}"
+                             alt="logo">
                     </a>
                 </div>
             </div>
@@ -101,6 +102,37 @@
                             اصلی</a>
                     </li>
 
+                        <li class="nav-item"><a href="{{route('albums')}}" class="nav-link">آلبوم ها <i class="flaticon-down-chevron"></i></a>
+                            <ul class="dropdown-menu">
+
+                                @if (count($albums))
+
+                                    @foreach($albums as $value)
+
+                                        <li class="nav-item"><a href="javascript:void(0)" class="nav-link">{{$value->name}}</a>
+                                            @if (count($value->sub))
+
+                                                <ul class="dropdown-menu">
+
+                                                    @foreach($value->sub as $item)
+
+                                                        <li class="nav-item"><a href="{{$item->path()}}" class="nav-link">{{$item->name}}</a></li>
+
+                                                    @endforeach
+
+                                                </ul>
+
+                                            @endif
+
+                                        </li>
+
+                                    @endforeach
+
+                                @endif
+
+                            </ul>
+                        </li>
+
                     <li class="nav-item"><a href="{{route('projects')}}"
                                             class="nav-link {{ request()->routeIs(['projects','project','projects.search']) ? 'active' : '' }}">پروژه
                             ها</a>
@@ -120,6 +152,10 @@
                             با ما</a>
                     </li>
 
+                        <li class="nav-item"><a href="{{route('agency')}}"
+                                                class="nav-link {{ request()->routeIs('agency') ? 'active' : '' }}">درخواست نمایندگی فروش</a>
+                        </li>
+
                 </ul>
 
                 <div class="others-options">
@@ -129,7 +165,8 @@
 
                         <div class="search-overlay search-popup">
                             <div class='search-box'>
-                                <form id="search_form" class="search-form" method="get" action="{{route('projects.search')}}">
+                                <form id="search_form" class="search-form" method="get"
+                                      action="{{route('projects.search')}}">
                                     <input id="search" value="{{request()->input('search')}}"
                                            onkeyup="this.value=removeSpaces(this.value)" class="search-input"
                                            name="search" placeholder="جستجو" type="search">

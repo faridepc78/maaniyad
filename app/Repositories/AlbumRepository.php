@@ -76,4 +76,13 @@ class AlbumRepository
             ->latest()
             ->paginate(10);
     }
+
+    public function getAllSubs()
+    {
+        return Album::query()
+            ->where('parent_id', '!=', '')
+            ->whereNotNull('parent_id')
+            ->latest()
+            ->paginate(30);
+    }
 }

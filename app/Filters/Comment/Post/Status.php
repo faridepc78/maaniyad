@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Filters\Comment;
+namespace App\Filters\Comment\Post;
 
 
 use App\Filters\Filter;

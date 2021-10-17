@@ -42,6 +42,8 @@
 
 @include('site.home.projects')
 
+@include('site.home.products')
+
 @include('site.home.feedbacks')
 
 @include('site.home.brands')

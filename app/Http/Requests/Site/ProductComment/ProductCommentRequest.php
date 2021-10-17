@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Site\Comment;
+namespace App\Http\Requests\Site\ProductComment;
 
-use App\Models\PostComment;
+use App\Models\ProductComment;
 use App\Rules\ValidationMobile;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CommentRequest extends FormRequest
+class ProductCommentRequest extends FormRequest
 {
     public function authorize()
     {
@@ -16,8 +16,8 @@ class CommentRequest extends FormRequest
     public function prepareForValidation()
     {
         return $this->merge([
-            'post_id' => extractId(request()->route('post_id')),
-            'status' => PostComment::PENDING
+            'product_id' => extractId(request()->route('product_id')),
+            'status' => ProductComment::PENDING
         ]);
     }
 
