@@ -16,7 +16,7 @@ class UpdateSliderRequest extends FormRequest
         $id = request()->route('slider');
 
         return [
-            'name' => ['required', 'string', 'max:255', 'unique:sliders,name,' . $id],
+            'name' => ['nullable', 'string', 'max:255', 'unique:sliders,name,' . $id],
             'text' => ['nullable', 'string'],
             'url' => ['nullable', 'url', 'unique:sliders,url,' . $id],
             'image' => ['nullable', 'mimes:jpg,png,jpeg', 'max:2048']

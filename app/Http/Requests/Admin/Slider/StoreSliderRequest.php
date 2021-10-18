@@ -14,7 +14,7 @@ class StoreSliderRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'string', 'max:255', 'unique:sliders,name'],
+            'name' => ['nullable', 'string', 'max:255', 'unique:sliders,name'],
             'text' => ['nullable', 'string'],
             'url' => ['nullable', 'url', 'unique:sliders,url'],
             'image' => ['required', 'mimes:jpg,png,jpeg', 'max:2048']
