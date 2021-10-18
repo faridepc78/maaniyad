@@ -27,7 +27,7 @@ class UpdateProductRequest extends FormRequest
             'slug' => ['required', 'string', 'max:255', 'unique:products,slug,' . $id],
             'code' => ['required', 'string', 'max:255', 'unique:products,code,' . $id],
             'album_id' => ['required', 'exists:albums,id'],
-            'image' => ['nullable', 'mimes:jpg,png,jpeg', 'max:1024'],
+            'image' => ['nullable', 'mimes:jpg,png,jpeg', 'max:5120'],
             'text' => ['required', 'string']
         ];
     }

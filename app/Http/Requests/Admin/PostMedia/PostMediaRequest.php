@@ -21,7 +21,7 @@ class PostMediaRequest extends FormRequest
     public function rules()
     {
         return [
-            'media' => ['required', 'mimes:jpg,png,jpeg', 'max:2048']
+            'media' => ['required', 'mimes:jpg,png,jpeg', 'max:5120']
         ];
     }
 

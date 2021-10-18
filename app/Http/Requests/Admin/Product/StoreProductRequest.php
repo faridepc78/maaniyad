@@ -25,7 +25,7 @@ class StoreProductRequest extends FormRequest
             'slug' => ['required', 'string', 'max:255', 'unique:products,slug'],
             'code' => ['required', 'string', 'max:255', 'unique:products,code'],
             'album_id' => ['required', 'exists:albums,id'],
-            'image' => ['required', 'mimes:jpg,png,jpeg', 'max:1024'],
+            'image' => ['required', 'mimes:jpg,png,jpeg', 'max:5120'],
             'text' => ['required', 'string']
         ];
     }

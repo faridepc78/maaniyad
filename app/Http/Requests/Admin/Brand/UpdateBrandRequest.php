@@ -18,7 +18,7 @@ class UpdateBrandRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255', 'unique:brands,name,' . $id],
             'link' => ['nullable', 'url', 'unique:brands,link,' . $id],
-            'image' => ['nullable', 'mimes:jpg,png,jpeg', 'max:1024']
+            'image' => ['nullable', 'mimes:jpg,png,jpeg', 'max:5120']
         ];
     }
 

@@ -17,7 +17,7 @@ class StoreSliderRequest extends FormRequest
             'name' => ['nullable', 'string', 'max:255', 'unique:sliders,name'],
             'text' => ['nullable', 'string'],
             'url' => ['nullable', 'url', 'unique:sliders,url'],
-            'image' => ['required', 'mimes:jpg,png,jpeg', 'max:2048']
+            'image' => ['required', 'mimes:jpg,png,jpeg', 'max:5120']
         ];
     }
 

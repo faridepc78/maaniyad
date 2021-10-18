@@ -1,5 +1,5 @@
 @section('admin_title')
-    <title>پنل مدیریت مانیاد | دسته بندی ها</title>
+    <title>پنل مدیریت مانیاد | دسته بندی پست ها</title>
 @endsection
 
 @include('admin.layout.header')
