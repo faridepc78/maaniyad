@@ -44,26 +44,12 @@ class User extends Authenticatable
     }
 
     static $users = [
-        'admin1' => [
+        'admin' => [
             'f_name' => 'فرید',
             'l_name' => 'شیشه بری',
             'email' => 'farid@gmail.com',
             'mobile' => '09123456789',
             'password' => '09123456789'
-        ],
-        'admin2' => [
-            'f_name' => 'محمد',
-            'l_name' => 'تاج گردون',
-            'email' => 'tajgardoon1989@gmail.com',
-            'mobile' => '09126728400',
-            'password' => '4420169230m'
-        ],
-        'admin3' => [
-            'f_name' => 'مریم',
-            'l_name' => 'جلال زاده',
-            'email' => 'maryam@gmail.com',
-            'mobile' => '09170233120',
-            'password' => '09170233120'
         ]
     ];
 }
