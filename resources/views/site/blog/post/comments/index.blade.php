@@ -1,0 +1,78 @@
+<div class="comments-area">
+
+    @include('site.blog.post.comments.form')
+
+    <br><br>
+
+    <h3 class="comments-title">{{$count_comments}} نظر:</h3>
+
+    <ol class="comment-list">
+
+        @if (count($comments))
+
+            @foreach($comments as $value)
+
+                <li class="comment" style="border: 1px dotted gray">
+
+                    <article class="comment-body">
+                        <footer class="comment-meta">
+                            <div class="comment-author vcard">
+                                <img src="{{$value->gravatar}}" class="avatar" alt="{{$value->gravatar}}">
+                                <b class="fn">{{$value->name}}</b>
+                                <span class="says">می گوید:</span>
+                            </div>
+
+                            <div class="comment-metadata">
+                                <time>{{\Morilog\Jalali\CalendarUtils::strftime('j F Y || H:i:s', strtotime($value['created_at']))}}</time>
+                            </div>
+                            <p>{{$value['site']}}</p>
+                        </footer>
+
+                        <div class="comment-content">
+                            <p>{{$value['message']}}</p>
+                        </div>
+                    </article>
+
+                    @if ($value['answer']!=null || !empty($value['answer']))
+                        <ol class="children">
+                            <li class="comment">
+                                <article class="comment-body">
+                                    <footer class="comment-meta">
+                                        <div class="comment-author vcard">
+                                            <img src="{{$value->admin_profile}}" class="avatar"
+                                                 alt="{{$value->admin_profile}}">
+                                            <b class="fn">{{$value['admin_name']}}</b>
+                                            <span class="says">می گوید:</span>
+                                        </div>
+
+                                        <div class="comment-metadata">
+                                            <time>{{\Morilog\Jalali\CalendarUtils::strftime('j F Y || H:i:s', strtotime($value['updated_at']))}}</time>
+                                        </div>
+                                    </footer>
+
+                                    <div class="comment-content">
+                                        <p>{{$value['answer']}}</p>
+                                    </div>
+
+                                </article>
+                            </li>
+                        </ol>
+                    @endif
+
+                </li>
+
+                <br><br>
+
+            @endforeach
+
+        @endif
+
+            <div class="col-lg-12 col-md-12">
+                <div class="pagination-area">
+                    {!! $comments->links() !!}
+                </div>
+            </div>
+
+    </ol>
+
+</div>
